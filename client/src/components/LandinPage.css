@@ -1,0 +1,13 @@
+.button {
+  background-image: url("https://w7.pngwing.com/pngs/205/392/png-transparent-world-cup-world-cup-cup-trophy-thumbnail.png");
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 70px;
+  background-size: 50px 50px;
+  background-position: center;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 1s;
+  border: none;
+  border-radius: 2px;
+}
