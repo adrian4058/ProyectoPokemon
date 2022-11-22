@@ -3,11 +3,16 @@ const FILTER_BY_TYPE = "FILTER_BY_TYPE";
 const FILTER_CREATED = "FILTER_CREATED";
 const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 const SORT = "SORT";
+const SEARCH_NAME = "SEARCH_NAME";
+const GET_TYPE = "GET_TYPE";
+const POST_POKEMON = "POST_POKEMON";
+const GET_DETAIL = "GET_DETAIL";
 
 const initialState = {
   pokemons: [],
   allPokemons: [],
   types: [],
+  detail: [],
 };
 
 function rootReducers(state = initialState, action) {
@@ -71,7 +76,25 @@ function rootReducers(state = initialState, action) {
         pokemons:
           action.payload === "Filtro" ? state.allPokemons : orderedCharacters,
       };
-
+    case SEARCH_NAME:
+      return {
+        ...state,
+        pokemons: action.payload,
+      };
+    case GET_TYPE:
+      return {
+        ...state,
+        types: action.payload,
+      };
+    case POST_POKEMON:
+      return {
+        ...state,
+      };
+    case GET_DETAIL:
+      return {
+        ...state,
+        detail: action.payload,
+      };
     default: {
       return state;
     }

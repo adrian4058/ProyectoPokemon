@@ -11,6 +11,8 @@ import {
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import Paginado from "./Paginado";
+import SearchBar from "./SearchBar";
+import NavBar from "./NavBar";
 
 const INITIAL_PAGE = 1;
 const FINAL_PAGE = 12;
@@ -58,7 +60,7 @@ export default function Home() {
 
   return (
     <div>
-      <Link to="/pokemons">Crear Pokemon</Link>
+      <NavBar />
       <h1>Pokemon APP</h1>
       <button
         onClick={(e) => {
@@ -101,6 +103,7 @@ export default function Home() {
           allPokemons={allPokemons.length}
           paginated={paginated}
         />
+        <SearchBar />
         {currentPokemons?.map((el) => {
           return (
             <fragment>
