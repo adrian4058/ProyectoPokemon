@@ -19,7 +19,7 @@ const getApiInfo = async () => {
       id: result.id,
       name: result.name,
       types: result.types.map((t) => t.type.name),
-      image: result.sprites.front_default,
+      image: result.sprites.other.home.front_default,
       hitpoint: result.stats[0].base_stat,
       attack: result.stats[1].base_stat,
       defense: result.stats[2].base_stat,

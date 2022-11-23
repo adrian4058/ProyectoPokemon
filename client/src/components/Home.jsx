@@ -13,6 +13,7 @@ import Card from "./Card";
 import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import NavBar from "./NavBar";
+import "./Home.css";
 
 const INITIAL_PAGE = 1;
 const FINAL_PAGE = 12;
@@ -37,11 +38,6 @@ export default function Home() {
     dispatch(getPokemons());
   }, [dispatch]); //condicion de corte, siempre y cuando tenga dispatch se ejecuta
 
-  function handleClick(e) {
-    e.preventDefault();
-    dispatch(getPokemons());
-  }
-
   const handleFilterType = (e) => {
     dispatch(filterPokemonsByType(e.target.value));
   }; ///
@@ -61,14 +57,8 @@ export default function Home() {
   return (
     <div>
       <NavBar />
+      <SearchBar className="search"/>
       <h1>Pokemon APP</h1>
-      <button
-        onClick={(e) => {
-          handleClick(e);
-        }}
-      >
-        Volver a cargar todos los personajes
-      </button>
       <div>
         <select onChange={onSelectsChange}>
           <option value="Filtro"> A-Z:</option>
@@ -103,13 +93,13 @@ export default function Home() {
           allPokemons={allPokemons.length}
           paginated={paginated}
         />
-        <SearchBar />
+        
         {currentPokemons?.map((el) => {
           return (
             <fragment>
               <Link to={"/home/" + el.id}>
                 <Card
-                  name={el.name}
+                  name={el.name[0].toUpperCase() + el.name.slice(1)}
                   image={el.image}
                   type={el.type}
                   key={el.id}

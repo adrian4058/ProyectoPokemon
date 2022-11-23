@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { createPokemon, getType } from "../actions/index";
 import { useDispatch, useSelector } from "react-redux";
+import "./PokemonCreate.css";
+function validpokemon(pokemon) {
+  let errors = {};
+  if (!pokemon.name) {
+    errors.name = "Se requiere un nombre";
+  }
+  return errors;
+}
 
-// function validpokemon(pokemon) {
-//   let errors = {};
-//   if (!pokemon.name) {
-//     errors.name = "Se requiere un nombre";
-//   }
-//   return errors;
-// }
-
-export function PokemonCreate() {
+export default function PokemonCreate() {
   const dispatch = useDispatch();
   const types = useSelector((state) => state.types);
+
+  const [errors, setErrors] = useState({});
 
   const [pokemon, setPokemon] = useState({
     name: "",
@@ -26,20 +28,29 @@ export function PokemonCreate() {
     height: 0,
     weight: 0,
   });
-  function handleSelect(e) {
+
+  const handleSelect = (e) => {
     setPokemon({
       ...pokemon,
       types: [...pokemon.types, e.target.value],
     });
-  }
-  function inputChange(e) {
+  };
+
+  const inputChange = (e) => {
+    e.preventDefault();
     setPokemon({
       ...pokemon,
       [e.target.name]: e.target.value,
     });
-  }
+    setErrors(
+      validpokemon({
+        ...pokemon,
+        [e.target.name]: e.target.value,
+      })
+    );
+  };
 
-  function onSubmit(e) {
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch(createPokemon(pokemon));
     alert("Personaje creado con exito");
@@ -54,16 +65,16 @@ export function PokemonCreate() {
       height: 0,
       weight: 0,
     });
-    // history.push("/home");
-  }
+  };
+
   useEffect(() => {
     dispatch(getType());
   }, []);
 
   return (
     <div>
-      <h3>Crear Pokemon</h3>
-      <form onSubmit={onSubmit}>
+      <h3 className="title">Crear Pokemon</h3>
+      <form className="form" onSubmit={onSubmit}>
         <div>
           <label>Nombre: </label>
           <input
@@ -71,7 +82,9 @@ export function PokemonCreate() {
             type="text"
             name="name"
             value={pokemon.name}
-          />
+            className="input"
+          />{" "}
+          {errors.name && <p className="error"> {errors.name}</p>}
         </div>
         <div>
           <label>Imagen: </label>
@@ -80,6 +93,7 @@ export function PokemonCreate() {
             name="image"
             type="text"
             value={pokemon.image}
+            className="input"
           />
         </div>
         <div>
@@ -89,6 +103,7 @@ export function PokemonCreate() {
             name="hitpoint"
             type="number"
             value={pokemon.hitpoint}
+            className="input"
           />
         </div>
         <div>
@@ -98,6 +113,7 @@ export function PokemonCreate() {
             name="attack"
             type="number"
             value={pokemon.attack}
+            className="input"
           />
         </div>
         <div>
@@ -107,6 +123,7 @@ export function PokemonCreate() {
             name="defense"
             type="number"
             value={pokemon.defense}
+            className="input"
           />
         </div>
         <div>
@@ -116,6 +133,7 @@ export function PokemonCreate() {
             name="speed"
             type="number"
             value={pokemon.speed}
+            className="input"
           />
         </div>
         <div>
@@ -125,6 +143,7 @@ export function PokemonCreate() {
             name="height"
             type="number"
             value={pokemon.height}
+            className="input"
           />
         </div>
         <div>
@@ -134,6 +153,7 @@ export function PokemonCreate() {
             name="weight"
             type="number"
             value={pokemon.weight}
+            className="input"
           />
         </div>
         <p className="types-s">

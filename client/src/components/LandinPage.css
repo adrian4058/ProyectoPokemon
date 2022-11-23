@@ -1,5 +1,5 @@
 .button {
-  background: black;
+  background: palevioletred;
   cursor: pointer;
   border: none;
   padding: 16px 32px;
@@ -8,6 +8,8 @@
   font-weight: bold;
   position: relative;
   border-radius: 12px;
+  margin: 40%;
+  padding: 15px 30px;
 }
 
 .button::before {
