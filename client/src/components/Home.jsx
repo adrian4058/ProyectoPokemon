@@ -36,7 +36,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getPokemons());
-  }, [dispatch]); //condicion de corte, siempre y cuando tenga dispatch se ejecuta
+  }, [dispatch]); 
 
   const handleFilterType = (e) => {
     dispatch(filterPokemonsByType(e.target.value));
@@ -53,10 +53,6 @@ export default function Home() {
   const onSelectsChange = (e) => {
     dispatch(Sort(e.target.value));
   };
-
-  // const onClose = (e) => {
-  //   dispatch(deleteCard(e.target.value));
-  // };
 
   return (
     <div>
@@ -113,7 +109,6 @@ export default function Home() {
             // </fragment>
           );
         })}
-        {/* <button onClick={handleNextPage}>Next Page</button> */}
       </div>
     </div>
   );
