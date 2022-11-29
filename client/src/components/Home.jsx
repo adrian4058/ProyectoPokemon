@@ -7,6 +7,7 @@ import {
   filterCreated,
   filterAttack,
   Sort,
+  
 } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
@@ -22,7 +23,7 @@ export default function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons); //con el use selector traeme en esa constante todo lo que esta en el estado de pokemons
   const [currentPage, setCurrentPage] = useState(INITIAL_PAGE); //pagina actual arranca en 1
-  const [pokemonsPerPage, setPokemonsPerPage] = useState(FINAL_PAGE); //pokemons por pagina
+  const [pokemonsPerPage] = useState(FINAL_PAGE); //pokemons por pagina
   const indexOfLastPokemon = currentPage * pokemonsPerPage; //indice de ultimo personaje
   const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage; //indice del primer personaje
   const currentPokemons = allPokemons.slice(
@@ -34,7 +35,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    //ESTUDIAR ESTO
     dispatch(getPokemons());
   }, [dispatch]); //condicion de corte, siempre y cuando tenga dispatch se ejecuta
 
@@ -54,10 +54,14 @@ export default function Home() {
     dispatch(Sort(e.target.value));
   };
 
+  // const onClose = (e) => {
+  //   dispatch(deleteCard(e.target.value));
+  // };
+
   return (
     <div>
       <NavBar />
-      <SearchBar className="search"/>
+      <SearchBar className="search" />
       <h1>Pokemon APP</h1>
       <div>
         <select onChange={onSelectsChange}>
@@ -93,19 +97,20 @@ export default function Home() {
           allPokemons={allPokemons.length}
           paginated={paginated}
         />
-        
+
         {currentPokemons?.map((el) => {
           return (
-            <fragment>
+            // <fragment>
               <Link to={"/home/" + el.id}>
                 <Card
                   name={el.name[0].toUpperCase() + el.name.slice(1)}
                   image={el.image}
-                  type={el.type}
-                  key={el.id}
+                  types={el.types}
+                  
+            
                 />
               </Link>
-            </fragment>
+            // </fragment>
           );
         })}
         {/* <button onClick={handleNextPage}>Next Page</button> */}

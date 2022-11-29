@@ -8,6 +8,7 @@ const SEARCH_NAME = "SEARCH_NAME";
 const GET_TYPE = "GET_TYPE";
 const GET_DETAIL = "GET_DETAIL";
 
+
 export function getPokemons() {
   return async function (dispatch) {
     var json = await axios.get("http://localhost:3001/pokemons", {});

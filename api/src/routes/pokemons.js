@@ -12,7 +12,7 @@ router.get("/", async (require, response, next) => {
       //si tengo name lo busco en la variable de arriba para mostrar el pokemon en pantalla
       //me traigo el primer pokemon que coincida
       let name_pokemon = await total_pokemons.filter(
-        (e) => e.name.toLowerCase().includes(name.toLowerCase()) //lo busco con minusculas  ???????
+        (e) => e.name.toLowerCase().includes(name.toLowerCase()) //lo busco con minusculas
       );
       name_pokemon.length //si encuentro un pokemon lo muestro o respondo con un mensaje de error
         ? response.status(200).send(name_pokemon)
@@ -43,6 +43,18 @@ router.get("/:id", async (require, response, next) => {
     next(error);
   }
 });
+
+// router.delete("/:id", async (require, response) => {
+//   try {
+//     const delete_pokemon = await allPokemons();
+//     delete_pokemon = delete_pokemon.filter(
+//       ({ id }) => id !== require.params.id
+//     );
+//     response.status(200).json(delete_pokemon);
+//   } catch (error) {
+//     response.send(error);
+//   }
+// });
 
 router.post("/", async (req, res, next) => {
   //Ruta de creacion del pokemon

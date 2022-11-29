@@ -7,17 +7,17 @@
   height: 660x;
   padding: 15px;
   margin: 0px;
-  background: rgba(64, 1, 136, 0.411);
+  background: rgba(10, 59, 105, 0.61);
   margin-left: auto;
   margin-right: auto;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.438);
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 .input {
   outline: none;
 }
 .title {
   font-size: 23px;
-  color: #fff;
+  color: rgb(0, 0, 0);
   font-family: Geneva, Tahoma, sans-serif;
 }
 
@@ -30,7 +30,7 @@ label {
   outline: none;
 }
 .error {
-  color: rgb(255, 0, 0);
+  color: rgb(255, 2, 2);
   margin-top: 2px;
   font-size: 14px;
 }

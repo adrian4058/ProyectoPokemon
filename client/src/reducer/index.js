@@ -8,6 +8,7 @@ const GET_TYPE = "GET_TYPE";
 const POST_POKEMON = "POST_POKEMON";
 const GET_DETAIL = "GET_DETAIL";
 
+
 const initialState = {
   pokemons: [],
   allPokemons: [],
@@ -95,6 +96,8 @@ function rootReducers(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+   
+
     default: {
       return state;
     }

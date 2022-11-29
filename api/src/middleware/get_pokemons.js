@@ -12,7 +12,7 @@ const getApiInfo = async () => {
       return Promise.all(data.map((res) => axios.get(res.url)));
     })
     .then((data) => {
-      return data.map((res) => res.data);
+      return data.map((res) => res.data); 
     });
   let pokeArray = resp.map((result) => {
     return {
