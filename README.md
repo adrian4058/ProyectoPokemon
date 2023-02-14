@@ -92,7 +92,7 @@ A continuación se detallaran los requerimientos mínimos para la aprobación de
 
 __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
 
-#### Tecnologías necesarias
+#### Tecnologías usadas frontend
 
 - [ ] React
 - [ ] Redux
@@ -180,8 +180,3 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
   - Obtener todos los tipos de pokemons posibles
   - En una primera instancia deberán traerlos desde pokeapi y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 
-## Testing
-
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
-- [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
