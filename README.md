@@ -30,7 +30,7 @@ Este es un ejemplo de como puede dar uso a su proyecto localmente. Para obtener 
 
 _1. Clone el repositorio:_
 ```bash
-  git clone https://github.com/adrian4058/HenryBooks.git
+  git clone https://github.com/adrian4058/ProyectoPokemon.git
 ```
 
 # En Carpetas API y CLIENT:
