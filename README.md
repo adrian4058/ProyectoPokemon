@@ -25,4 +25,22 @@ La idea general es crear una aplicación en la cual se puedan ver los distintos 
 - [ ] Express
 - [ ] Sequelize - Postgres
 
+## Getting Started
+Este es un ejemplo de como puede dar uso a su proyecto localmente. Para obtener una copia local en funcionamiento, siga estos pasos de ejemplo.
+
+_1. Clone el repositorio:_
+```bash
+  git clone https://github.com/adrian4058/HenryBooks.git
+```
+
+# En Carpetas API y CLIENT:
+_2. Instale las dependencias._
+```
+npm install
+```
+
+_3. Inicie su proyecto local._
+```
+npm start
+```
 
