@@ -7,7 +7,6 @@ import {
   filterCreated,
   filterAttack,
   Sort,
-  
 } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
@@ -24,8 +23,9 @@ export default function Home() {
   const allPokemons = useSelector((state) => state.pokemons); //con el use selector traeme en esa constante todo lo que esta en el estado de pokemons
   const [currentPage, setCurrentPage] = useState(INITIAL_PAGE); //pagina actual arranca en 1
   const [pokemonsPerPage] = useState(FINAL_PAGE); //pokemons por pagina
-  const indexOfLastPokemon = currentPage * pokemonsPerPage; //indice de ultimo personaje
-  const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage; //indice del primer personaje
+
+  const indexOfFirstPokemon = (currentPage - 1) * pokemonsPerPage; //indice del primer personaje
+  const indexOfLastPokemon = indexOfFirstPokemon + pokemonsPerPage; //indice de ultimo personaje
   const currentPokemons = allPokemons.slice(
     indexOfFirstPokemon,
     indexOfLastPokemon
@@ -33,10 +33,16 @@ export default function Home() {
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+  const handleNext = () => {
+    setCurrentPage(currentPage + 1);
+  };
+  const handlePrevious = () => {
+    setCurrentPage(currentPage - 1);
+  };
 
   useEffect(() => {
     dispatch(getPokemons());
-  }, [dispatch]); 
+  }, [dispatch]);
 
   const handleFilterType = (e) => {
     dispatch(filterPokemonsByType(e.target.value));
@@ -92,20 +98,23 @@ export default function Home() {
           pokemonsPerPage={pokemonsPerPage}
           allPokemons={allPokemons.length}
           paginated={paginated}
+          handleNext={handleNext}
+          handlePrevious={handlePrevious}
+          currentPage={currentPage}
+          currentPokemons={currentPokemons}
+          indexOfLastPokemon={indexOfLastPokemon}
         />
 
         {currentPokemons?.map((el) => {
           return (
             // <fragment>
-              <Link to={"/home/" + el.id}>
-                <Card
-                  name={el.name[0].toUpperCase() + el.name.slice(1)}
-                  image={el.image}
-                  types={el.types}
-                  
-            
-                />
-              </Link>
+            <Link to={"/home/" + el.id}>
+              <Card
+                name={el.name[0].toUpperCase() + el.name.slice(1)}
+                image={el.image}
+                types={el.types}
+              />
+            </Link>
             // </fragment>
           );
         })}

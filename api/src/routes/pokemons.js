@@ -1,6 +1,6 @@
 const { Router, response } = require("express");
 const router = Router();
-const allPokemons = require("../middleware/get_pokemons");
+const allPokemons = require("../controller/get_pokemons");
 const { Pokemon, Type } = require("../db");
 
 router.get("/", async (require, response, next) => {

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
 import { Link } from "react-router-dom";
-import "./Details.css"
+import "./Details.css";
 
 export default function Detail(props) {
   const dispatch = useDispatch();
