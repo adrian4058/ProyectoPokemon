@@ -1,28 +1,31 @@
 .search {
-    border-radius: 5px;
-    padding: 10px 15px 10px 15px;
-    background-color: #eeeeee;
-    border: 1px solid rgb(212, 175, 255);
-    margin-top: 10px;
-    display: inline;
-    outline: none;
+  border-radius: 5px;
+  padding: 10px 15px 10px 15px;
+  background-color: #eeeeee;
+  border: 1px solid rgb(212, 175, 255);
+  margin-top: 10px;
+  display: inline;
+  outline: none;
 }
 
-.boton{ 
-    margin-right: 10px;
-    margin: 2px;
-    margin-bottom: 10px;
-    width: 65px;
-    height: 37px;
-    background: rgba(242, 215, 255, 0.89);
-    border-radius: 5px;
-    outline: none;
-    transition-duration: 0.4s
+.boton {
+  background-image: url("./icons/lupa.ico");
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  margin-right: 10px;
+  margin: 2px;
+  margin-bottom: 10px;
+  width: 65px;
+  height: 37px;
+  background: #b5e48c;
+  border-radius: 5px;
+  outline: none;
+  transition-duration: 0.4s;
 }
 
-.boton:hover{
-    cursor: pointer;
-    color: white;
-    background: #290035;
-
+.boton:hover {
+  cursor: pointer;
+  color: white;
+  background: #290035;
 }

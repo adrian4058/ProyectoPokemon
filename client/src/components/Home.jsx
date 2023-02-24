@@ -14,6 +14,7 @@ import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import NavBar from "./NavBar";
 import "./Home.css";
+import Footer from "./Footer";
 
 const INITIAL_PAGE = 1;
 const FINAL_PAGE = 12;
@@ -64,9 +65,8 @@ export default function Home() {
     <div>
       <NavBar />
       <SearchBar className="search" />
-      <h1>Pokemon APP</h1>
       <div>
-        <select onChange={onSelectsChange}>
+        <select  onChange={onSelectsChange}>
           <option value="Filtro"> A-Z:</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
@@ -107,7 +107,7 @@ export default function Home() {
 
         {currentPokemons?.map((el) => {
           return (
-            // <fragment>
+             <fragment>
             <Link to={"/home/" + el.id}>
               <Card
                 name={el.name[0].toUpperCase() + el.name.slice(1)}
@@ -115,10 +115,21 @@ export default function Home() {
                 types={el.types}
               />
             </Link>
-            // </fragment>
+             </fragment>
           );
         })}
+        <Paginado
+          pokemonsPerPage={pokemonsPerPage}
+          allPokemons={allPokemons.length}
+          paginated={paginated}
+          handleNext={handleNext}
+          handlePrevious={handlePrevious}
+          currentPage={currentPage}
+          currentPokemons={currentPokemons}
+          indexOfLastPokemon={indexOfLastPokemon}
+        />
       </div>
+      <Footer className="footer" />
     </div>
   );
 }

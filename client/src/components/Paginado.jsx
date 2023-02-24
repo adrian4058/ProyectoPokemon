@@ -17,14 +17,17 @@ export default function Paginado({
 
   return (
     <nav>
-      <button
-        disabled={currentPage === 1}
-        className="btn"
-        onClick={handlePrevious}
-      >
-        Prev
-      </button>
       <ul className="paginado">
+        <li className="number">
+          <button
+            disabled={currentPage === 1}
+            className="btn"
+            onClick={handlePrevious}
+          >
+            Prev
+          </button>
+        </li>
+
         {pageNumber &&
           pageNumber.map((number) => (
             <li className="number" key={number}>
@@ -33,14 +36,16 @@ export default function Paginado({
               </button>
             </li>
           ))}
+        <li className="number">
+          <button
+            className="btn"
+            disabled={currentPokemons.length < pokemonsPerPage}
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        </li>
       </ul>
-      <button
-        className="btn"
-        disabled={currentPokemons.length < pokemonsPerPage}
-        onClick={handleNext}
-      >
-        Next
-      </button>
     </nav>
   );
 }

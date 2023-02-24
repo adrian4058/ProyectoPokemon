@@ -1,17 +1,20 @@
 .number {
   margin-left: 10px;
+  margin-right: 10px;
   align-items: center;
   display: inline;
-  padding: 8px;
+  padding: -5px;
 }
 
 .btn {
-  background-color: rgb(255, 255, 255);
-  border-radius: 20px;
+  background-color: #D9ED92;
+  border-width: 2px;
+  border-color: #168AAD;
+  border-radius: 15px;
   transition-duration: 0.4s;
-  width: 30px;
+  width: 50px;
   height: 30px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .btn:focus {
@@ -20,6 +23,7 @@
 
 .btn:hover {
   cursor: pointer;
-  background-color: #290035;
-  color: rgb(255, 255, 255);
+  background-color: #52B69A;
+  box-shadow: 2px 4px 10px 5px #168AAD;
+  
 }

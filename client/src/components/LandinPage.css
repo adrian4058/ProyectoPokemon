@@ -1,49 +1,99 @@
-.button {
-  background: palevioletred;
-  cursor: pointer;
-  border: none;
-  padding: 16px 32px;
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  position: relative;
-  border-radius: 12px;
-  margin: 40%;
-  padding: 15px 30px;
+* {
+  padding: 0;
+  margin: 0;
 }
 
-.button::before {
-  content: "";
-  position: absolute;
+.lp {
+  height: 100vh;
+  background-image: url("https://images3.alphacoders.com/902/902690.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .social {
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  justify-content:center;
+  flex-wrap: wrap;
+  display: flex;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    red,
-    blue,
-    deeppink,
-    blue,
-    green,
-    gray,
-    black
-  );
-  background-size: 800%;
-  border-radius: 10px;
-  filter: blur(8px);
-  animation: glowing 20s linear infinite;
+  gap: 0.5rem;
+  background-color: #168aad;
+  align-items: center;
+  padding: 0.1rem;
+  
+}
+.social-options{
+  display: flex;
+  justify-content: flex-end;
+
+  margin-left: auto;
+  align-items: center;
+  
+}
+.social-btn{
+  position: relative;
+  border-radius: 0.5em;
+}
+.about {
+  font-weight: bold;
+  position: relative;
+  font-size: 1em;
+  padding: .3rem 1rem;
+  background-color: rgb(54, 53, 53);
+  text-decoration: none;
+  border: none;
+  border-radius: 0.5em;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
-@keyframes glowing {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
+.social-about {
+  color: rgb(199, 199, 199);
 }
+
+.paragram {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 325px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.4rem;
+  padding: 1rem 1rem;
+}
+
+.paragram h2{
+  color: white;
+}
+
+.title {
+  background-color: #184e77;
+  height: 40px;
+  border-radius: 40%;
+  text-decoration: underline;
+} */
+
+

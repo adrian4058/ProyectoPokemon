@@ -7,7 +7,6 @@ router.get("/", async (require, response, next) => {
   try {
     let name = require.query.name; //si recibo name por query lo guardo en una variable
     let total_pokemons = await allPokemons();
-    console.log(total_pokemons); // me traigo todo los pokemos de mi api
     if (name) {
       //si tengo name lo busco en la variable de arriba para mostrar el pokemon en pantalla
       //me traigo el primer pokemon que coincida
