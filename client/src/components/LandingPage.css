@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  /* background-image: url("https://images4.alphacoders.com/119/119284.jpg"); */
+}
+
+:root {
+  --poppins: "Poppins", sans-serif;
+  --opens-sans: "Open Sans", sans-serif;
+  --pink: #d9ed92;
+  --lightpink: #34a0a4;
+  --lightred: #184e77;
+  --verydarkcyan: hsl(192, 100%, 9%);
+  --VeryPaleBlue: hsl(207, 100%, 98%);
+  --padding-conteiner: 80px 0;
+}
+
+body {
+  font-family: var(--opens-sans);
+  /* padding: var(--padding-conteiner); */
+  height: 100%;
+  /* borrar el de arriba */
+}
+
+.container {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  overflow: hidden;
+  /* lo que sale del contenedor se esconde */
+  padding: var(--padding-conteiner);
+}
+
+.hero {
+  background-image: url("https://images2.alphacoders.com/119/119130.jpg");
+  background-size: 100% auto;
+  background-position: center 60%;
+  background-repeat: repeat-y;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* display flex y heigh borrar */
+}
+
+.hero__nav {
+  background-color: var(--verydarkcyan);
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.hero__main {
+  text-align: center;
+  flex: 1;
+}
+
+.hero__logo {
+  width: 40%;
+  max-width: 160px;
+  margin: 2px 20px;
+}
+
+.hero__huddle {
+  width: 40%;
+  display: block;
+  /* para quitar el margen que tienen por defecto las imagenes */
+}
+
+.hero__huddle:hover {
+  transform: translateY(-5%);
+}
+
+.hero__cta {
+  color: var(--lightpink);
+  text-decoration: none;
+  margin: 2px 20px;
+  border: 2px solid;
+  padding: 4px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 0 10px;
+}
+
+.hero__cta:hover {
+  color: #76c893;
+  transition: 0.3s;
+}
+
+.hero__title {
+  padding: 2px 2px;
+  font-family: var(--poppins);
+  color: #76c893;
+  font-size: 35px;
+}
+
+.hero__texts {
+  background-color: rgba(0, 0, 0, 0.5);
+  
+  font-size: 20px;
+  border-radius: 35px;
+}
+
+.hero__paragraph {
+  width: 90%;
+  color: white;
+  line-height: 1.5;
+  margin: 16px auto;
+}
+
+.hero__home {
+  display: inline-block;
+  background-color: hsl(192, 100%, 9%);
+  color: white;
+  text-decoration: none;
+  padding: 16px 30px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px;
+  margin-top: 70px;
+}
+
+.hero__home:hover {
+  color: #76c893;
+  transition: 0.3s;
+}

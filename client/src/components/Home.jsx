@@ -14,7 +14,6 @@ import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import NavBar from "./NavBar";
 import "./Home.css";
-import Footer from "./Footer";
 
 const INITIAL_PAGE = 1;
 const FINAL_PAGE = 12;
@@ -129,7 +128,6 @@ export default function Home() {
           indexOfLastPokemon={indexOfLastPokemon}
         />
       </div>
-      <Footer className="footer" />
     </div>
   );
 }

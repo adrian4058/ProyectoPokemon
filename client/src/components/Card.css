@@ -12,6 +12,8 @@
   border-color: #22043dda;
   border-width: 1.5px;
   border-style: solid;
+  opacity: 0.85; 
+  /* opacity para la transparencia */
 }
 
 .stylesCard:hover {
