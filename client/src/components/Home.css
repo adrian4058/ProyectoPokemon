@@ -1,3 +1,5 @@
+*+
+
 div select {
   margin-left: 50px;
   border-radius: 4px;
@@ -7,25 +9,4 @@ div select {
   background-color: #168AAD;
   color: white;
   outline: none;
-}
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #184e77;
-  height: 60px;
-  border-radius: 10px;
-}
-.footer a {
-  margin: 0 20px;
-  color: white;
-  transition: all 0.3s ease-in-out;
-}
-
-.footer a:hover {
-  color: #0077b5;
-}
-
-.footer svg {
-  vertical-align: middle;
 }

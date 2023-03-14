@@ -79,10 +79,10 @@ export default function Detail(props) {
         ) : (
           <img
             src={
-              "https://static.wixstatic.com/media/20abc5_e58061f333744c2899c375ec7f024eb3~mv2.gif"
+              "https://cdn.dribbble.com/users/1204535/screenshots/11195730/media/6823f0d3a3fc4ccf925df7bc710cd017.gif"
             }
-            width="250px"
-            height="300px"
+            // width="250px"
+            // height="300px"
             alt="Not found"
           />
         )}

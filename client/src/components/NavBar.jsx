@@ -1,37 +1,47 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
-import { useSelector } from "react-redux";
+
 
 export default function NavBar() {
-  const pokemons = useSelector((state) => state.allPokemons);
-  useEffect(() => {}, [pokemons]);
+  
 
   return (
-    <div className="container">
-      <div className="navbar">
-        <ul className="left">
-          <li>
-            {pokemons.length > 0 ? (
-              <p>
-                <Link to="/create">
-                  <p>Create Pokémon</p>
-                </Link>{" "}
-              </p>
-            ) : null}
-          </li>
-          <li>
-            {" "}
-            <a href="https://www.linkedin.com/in/adrian4058">LinkedIn</a>
-          </li>
-          <li>
-            <a href="https://www.github.com/adrian4058">GitHub</a>
-          </li>
-          <li>
-            <Link to="/about">About Me</Link>
-          </li>
-        </ul>
+    <nav className="navbar content">
+      <div className="navbar__create">
+        <Link className="navbar__button-create" to="/create">Create Pokemon</Link>
       </div>
-    </div>
+      <div className="navbar__social about">
+        <Link className="navbar__button" to="/about">About Me</Link>
+        <a className="navbar__button" href="https://www.linkedin.com/in/adrian4058">LinkedIn</a>
+        <a className="navbar__button" href="https://www.github.com/adrian4058">GitHub</a>
+      </div>
+    </nav>
+
+    // <nav className>
+    //   <ul>
+    //     <li>
+    //       {pokemons.length > 0 ? (
+    //         <p>
+    //           <Link to="/create">
+    //             <p>Create Pokémon</p>
+    //           </Link>{" "}
+    //         </p>
+    //       ) : null}
+    //     </li>
+    //   </ul>
+    //   <ul>
+    //     <li>
+    //       {" "}
+    //       <a href="https://www.linkedin.com/in/adrian4058">LinkedIn</a>
+    //     </li>
+    //     <li>
+    //       <a href="https://www.github.com/adrian4058">GitHub</a>
+    //     </li>
+    //     <li>
+    //       <Link to="/about">About Me</Link>
+    //     </li>
+    //   </ul>
+    // </nav>
   );
 }
