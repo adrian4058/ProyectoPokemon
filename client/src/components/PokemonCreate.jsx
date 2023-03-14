@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { createPokemon, getType } from "../actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import "./PokemonCreate.css";
+import NavBar from "./NavBar";
 
 const validpokemon = (pokemon) => {
   let errors = {};
@@ -99,6 +100,7 @@ export default function PokemonCreate() {
 
   return (
     <div>
+      <NavBar currentComponent="pokemonCreate" />
       <h3 className="title">Crear Pokemon</h3>
       <form className="form" onSubmit={onSubmit}>
         <div>
@@ -199,7 +201,7 @@ export default function PokemonCreate() {
             <li>{pokemon.types.map((e) => e + " , ")}</li>
           </ul>
         </p>{" "}
-          {errors.types && <p className="error"> {errors.types}</p>}
+        {errors.types && <p className="error"> {errors.types}</p>}
         <Link to="/home">
           <button type="submit" className="atras">
             Atrás

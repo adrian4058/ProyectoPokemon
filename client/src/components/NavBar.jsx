@@ -1,20 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-
-export default function NavBar() {
+export default function NavBar(props) {
   
-
   return (
     <nav className="navbar content">
       <div className="navbar__create">
-        <Link className="navbar__button-create" to="/create">Create Pokemon</Link>
+        {props.currentComponent === "home" ? (
+          <Link
+            // onClick={handleClick}
+            className="navbar__button-create"
+            to="/create"
+          >
+            Crear Pokemon
+          </Link>
+        ) : (
+          <Link
+            // onClick={handleClick}
+            className="navbar__button-create"
+            to="/home"
+          >
+            Volver
+          </Link>
+        )}
       </div>
       <div className="navbar__social about">
-        <Link className="navbar__button" to="/about">About Me</Link>
-        <a className="navbar__button" href="https://www.linkedin.com/in/adrian4058">LinkedIn</a>
-        <a className="navbar__button" href="https://www.github.com/adrian4058">GitHub</a>
+        <Link className="navbar__button" to="/about">
+          About Me
+        </Link>
+        <a
+          className="navbar__button"
+          href="https://www.linkedin.com/in/adrian4058"
+        >
+          LinkedIn
+        </a>
+        <a className="navbar__button" href="https://www.github.com/adrian4058">
+          GitHub
+        </a>
       </div>
     </nav>
 

@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
 import { Link } from "react-router-dom";
 import "./Details.css";
+import NavBar from "./NavBar";
 
 export default function Detail(props) {
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(getDetail(props.match.params.id));
   }, [dispatch]);
@@ -14,6 +16,7 @@ export default function Detail(props) {
   let details = useSelector((state) => state.detail);
   return (
     <div className="container">
+      <NavBar />
       <div className="volver">
         <Link to="/home" className="letter">
           {" "}

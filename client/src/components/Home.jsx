@@ -62,10 +62,10 @@ export default function Home() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar currentComponent="home" />
       <SearchBar className="search" />
       <div>
-        <select  onChange={onSelectsChange}>
+        <select onChange={onSelectsChange}>
           <option value="Filtro"> A-Z:</option>
           <option value="Ascendente">Ascendente</option>
           <option value="Descendente">Descendente</option>
@@ -106,15 +106,15 @@ export default function Home() {
 
         {currentPokemons?.map((el) => {
           return (
-             <fragment>
-            <Link to={"/home/" + el.id}>
-              <Card
-                name={el.name[0].toUpperCase() + el.name.slice(1)}
-                image={el.image}
-                types={el.types}
-              />
-            </Link>
-             </fragment>
+            <fragment>
+              <Link to={"/home/" + el.id}>
+                <Card
+                  name={el.name[0].toUpperCase() + el.name.slice(1)}
+                  image={el.image}
+                  types={el.types}
+                />
+              </Link>
+            </fragment>
           );
         })}
         <Paginado
