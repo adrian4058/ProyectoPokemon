@@ -1,4 +1,11 @@
-*+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.home{
+  height: 100vh;
+}
 
 div select {
   margin-left: 50px;

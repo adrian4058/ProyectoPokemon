@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 export default function NavBar(props) {
-  
   return (
     <nav className="navbar content">
       <div className="navbar__create">
@@ -17,11 +16,7 @@ export default function NavBar(props) {
             Crear Pokemon
           </Link>
         ) : (
-          <Link
-            // onClick={handleClick}
-            className="navbar__button-create"
-            to="/home"
-          >
+          <Link className="navbar__button-create" to="/home">
             Volver
           </Link>
         )}
@@ -39,33 +34,13 @@ export default function NavBar(props) {
         <a className="navbar__button" href="https://www.github.com/adrian4058">
           GitHub
         </a>
+        <a
+          className="navbar__button"
+          href="mailto:adrian_2016_@outlook.es"
+        >
+          Contacto
+        </a>
       </div>
     </nav>
-
-    // <nav className>
-    //   <ul>
-    //     <li>
-    //       {pokemons.length > 0 ? (
-    //         <p>
-    //           <Link to="/create">
-    //             <p>Create Pokémon</p>
-    //           </Link>{" "}
-    //         </p>
-    //       ) : null}
-    //     </li>
-    //   </ul>
-    //   <ul>
-    //     <li>
-    //       {" "}
-    //       <a href="https://www.linkedin.com/in/adrian4058">LinkedIn</a>
-    //     </li>
-    //     <li>
-    //       <a href="https://www.github.com/adrian4058">GitHub</a>
-    //     </li>
-    //     <li>
-    //       <Link to="/about">About Me</Link>
-    //     </li>
-    //   </ul>
-    // </nav>
   );
 }

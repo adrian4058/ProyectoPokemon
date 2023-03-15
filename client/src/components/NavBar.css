@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 .navbar {
-  background-color:hsl(192, 100%, 9%);
+  background-color: hsl(192, 100%, 9%);
   display: flex;
   height: 50px;
   justify-content: space-between;
@@ -42,33 +42,66 @@
   justify-content: space-around;
 }
 
-.navbar__button {
-  color: #34a0a4;
-  text-decoration: none;
-  margin: 5px 8px;
-  border: 2px solid;
-  padding: 5px 12px;
-  border-radius: 30px;
-  font-weight: 600;
-  box-shadow: 0 0 10px;
-}
-
 .navbar__button-create {
-  color: white;
+  color: black;
   text-decoration: none;
-  margin: 5px 8px;
-  border: 2px solid;
-  padding: 5px 12px;
-  border-radius: 30px;
+  margin: 5px 5px;
+  padding: 8px 13px;
+  border-radius: 5px;
   font-weight: 600;
-  box-shadow: 0 0 10px;
+
+  --c: #99d98c;
+
+  /* box-shadow: 0 0 0 0.1em inset black; */
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+  background-color: #52b69a;
 }
 .navbar__button-create:hover {
-  color: #76c893;
-  transition: 0.3s;
+  color: black;
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+.navbar__button-create:active {
+  box-shadow: 0 0 9e9Q inset #0009;
+  background-color: var(--c);
+  color: #fff;
 }
 
+.navbar__button {
+  color: white;
+  text-decoration: none;
+  margin: 5px 5px;
+  padding: 8px 13px;
+  border-radius: 5px;
+  font-weight: 600;
+
+  --c: #34a0a4;
+
+  /* box-shadow: 0 0 0 0.1em inset black; */
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+  background-color: #184e77;
+}
 .navbar__button:hover {
-  color: #76c893;
-  transition: 0.3s;
+  color: black;
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+.navbar__button:active {
+  box-shadow: 0 0 9e9Q inset #0009;
+  background-color: var(--c);
+  color: #fff;
 }

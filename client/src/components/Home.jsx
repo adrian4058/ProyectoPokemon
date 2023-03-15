@@ -61,10 +61,10 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="home" >
       <NavBar currentComponent="home" />
-      <SearchBar className="search" />
-      <div>
+      <SearchBar/>
+      <div className="home-content">
         <select onChange={onSelectsChange}>
           <option value="Filtro"> A-Z:</option>
           <option value="Ascendente">Ascendente</option>

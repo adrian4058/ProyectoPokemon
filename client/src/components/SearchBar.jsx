@@ -19,7 +19,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
+    <div className="search">
       <input
         className="search"
         type="text"
