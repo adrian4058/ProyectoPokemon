@@ -1,20 +1,30 @@
 .number {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 5px;
   align-items: center;
   display: inline;
   padding: -5px;
 }
-
-.btn {
-  background-color: #D9ED92;
-  border-width: 2px;
-  border-color: #168AAD;
-  border-radius: 15px;
+.btn-current {
+  background-color: #f2e8cf;
+  /* color: white; */
+  border: 1px solid;
+  border-color: transparent;
+  border-radius: 7px;
   transition-duration: 0.4s;
-  width: 50px;
-  height: 30px;
+  padding: 5px 10px;
+  font-weight: 600;
   margin-top: 15px;
+}
+.btn {
+  background-color: #184e77;
+  color: white;
+  border: 1px solid;
+  border-color: transparent;
+  border-radius: 7px;
+  transition-duration: 0.4s;
+  padding: 5px 10px;
+  margin-top: 15px;
+  font-weight: 600;
 }
 
 .btn:focus {
@@ -23,7 +33,6 @@
 
 .btn:hover {
   cursor: pointer;
-  background-color: #52B69A;
-  box-shadow: 2px 4px 10px 5px #168AAD;
-  
+  background-color: #52b69a;
+  box-shadow: 2px 4px 10px 0px #168aad;
 }

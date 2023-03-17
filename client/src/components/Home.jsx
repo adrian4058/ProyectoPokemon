@@ -61,72 +61,77 @@ export default function Home() {
   };
 
   return (
-    <div className="home" >
+    <div className="home">
       <NavBar currentComponent="home" />
-      <SearchBar/>
-      <div className="home-content">
-        <select onChange={onSelectsChange}>
-          <option value="Filtro"> A-Z:</option>
-          <option value="Ascendente">Ascendente</option>
-          <option value="Descendente">Descendente</option>
-        </select>
-        <select onChange={handleFilterAttack}>
-          <option value="Fuerza"> Fuerza </option>
-          <option value="Mayor fuerza">Mayor fuerza</option>
-          <option value="Menor fuerza">Menor fuerza</option>
-        </select>
-        <select onChange={handleFilterType}>
-          <option value="type"> Tipo </option>
-          <option value="normal"> Normal </option>
-          <option value="flying"> Flying </option>
-          <option value="poison"> Poison </option>
-          <option value="ground"> Ground </option>
-          <option value="bug"> Bug </option>
-          <option value="fire"> Fire </option>
-          <option value="water"> Water </option>
-          <option value="grass"> Grass </option>
-          <option value="electric"> Electric </option>
-          <option value="fairy"> Fairy </option>
-        </select>
-        <select onChange={handleFilterCreated}>
-          <option value="Todos"> Todos </option>
-          <option value="Creados"> Creados </option>
-          <option value="Existentes"> Existentes </option>
-        </select>
-        <Paginado
-          pokemonsPerPage={pokemonsPerPage}
-          allPokemons={allPokemons.length}
-          paginated={paginated}
-          handleNext={handleNext}
-          handlePrevious={handlePrevious}
-          currentPage={currentPage}
-          currentPokemons={currentPokemons}
-          indexOfLastPokemon={indexOfLastPokemon}
-        />
+      <div className="home-filter">
+        <div className="searchbar">
+          <SearchBar />
+          <select onChange={onSelectsChange}>
+            <option value="Filtro"> Orden alfabético</option>
+            <option value="Ascendente">Ascendente</option>
+            <option value="Descendente">Descendente</option>
+          </select>
+          <select onChange={handleFilterAttack}>
+            <option value="Fuerza"> Orden por Fuerza </option>
+            <option value="Mayor fuerza">Mayor fuerza</option>
+            <option value="Menor fuerza">Menor fuerza</option>
+          </select>
+          <select onChange={handleFilterType}>
+            <option value="type"> Orden por Tipo </option>
+            <option value="normal"> Normal </option>
+            <option value="flying"> Flying </option>
+            <option value="poison"> Poison </option>
+            <option value="ground"> Ground </option>
+            <option value="bug"> Bug </option>
+            <option value="fire"> Fire </option>
+            <option value="water"> Water </option>
+            <option value="grass"> Grass </option>
+            <option value="electric"> Electric </option>
+            <option value="fairy"> Fairy </option>
+          </select>
+          <select onChange={handleFilterCreated}>
+            <option value="Todos"> Orden Creados/Existentes </option>
+            <option value="Creados"> Creados </option>
+            <option value="Existentes"> Existentes </option>
+          </select>
+          <button className="clear-filtros">Limpiar Filtros</button>
+        </div>
+        <div className="home-content">
+          <Paginado
+            pokemonsPerPage={pokemonsPerPage}
+            allPokemons={allPokemons.length}
+            paginated={paginated}
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            currentPage={currentPage}
+            currentPokemons={currentPokemons}
+            indexOfLastPokemon={indexOfLastPokemon}
+          />
 
-        {currentPokemons?.map((el) => {
-          return (
-            <fragment>
-              <Link to={"/home/" + el.id}>
-                <Card
-                  name={el.name[0].toUpperCase() + el.name.slice(1)}
-                  image={el.image}
-                  types={el.types}
-                />
-              </Link>
-            </fragment>
-          );
-        })}
-        <Paginado
-          pokemonsPerPage={pokemonsPerPage}
-          allPokemons={allPokemons.length}
-          paginated={paginated}
-          handleNext={handleNext}
-          handlePrevious={handlePrevious}
-          currentPage={currentPage}
-          currentPokemons={currentPokemons}
-          indexOfLastPokemon={indexOfLastPokemon}
-        />
+          {currentPokemons?.map((el) => {
+            return (
+              <fragment>
+                <Link to={"/home/" + el.id}>
+                  <Card
+                    name={el.name.toUpperCase()}
+                    image={el.image}
+                    types={el.types}
+                  />
+                </Link>
+              </fragment>
+            );
+          })}
+          {/* <Paginado
+            pokemonsPerPage={pokemonsPerPage}
+            allPokemons={allPokemons.length}
+            paginated={paginated}
+            handleNext={handleNext}
+            handlePrevious={handlePrevious}
+            currentPage={currentPage}
+            currentPokemons={currentPokemons}
+            indexOfLastPokemon={indexOfLastPokemon}
+          /> */}
+        </div>
       </div>
     </div>
   );

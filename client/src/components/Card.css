@@ -1,31 +1,29 @@
 .stylesCard {
-  background: #D9ED92;
+  background: #fefae0;
   margin: 35px;
   width: 17rem;
   border-radius: 20px;
   display: inline-block;
   transition: all 400ms ease;
   box-sizing: content-box;
-  box-shadow: 2px 4px 10px 5px #168AAD;
-  text-shadow: 2px 2px 10px #168AAD;
+  box-shadow: 2px 4px 10px 2px #168aad;
   min-height: 150px;
-  border-color: #22043dda;
-  border-width: 1.5px;
-  border-style: solid;
-  opacity: 0.85; 
+  border: 1px transparent;
+  opacity: 0.85;
   /* opacity para la transparencia */
 }
 
 .stylesCard:hover {
-  box-shadow: 20px 20px 20px #76C893;
-  transform: translateY(-10%);
+  box-shadow: 15px 15px 30px #76c893;
+  transform: translateY(-7%);
 }
 
 .name {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 15px;
   font-size: 20px;
-  color: #000000;
-  text-decoration: none;
+  color: var(--verydarkcyan);
+  font-weight: 600;
 }
 
 .typeStyle {
@@ -35,6 +33,7 @@
   display: inline;
   padding-left: 3px;
   padding-right: 3px;
+  /* margin-top: 5px; */
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
 }
