@@ -66,35 +66,42 @@ export default function Home() {
       <div className="home-filter">
         <div className="searchbar">
           <SearchBar />
-          <select onChange={onSelectsChange}>
-            <option value="Filtro"> Orden alfabético</option>
-            <option value="Ascendente">Ascendente</option>
-            <option value="Descendente">Descendente</option>
-          </select>
-          <select onChange={handleFilterAttack}>
-            <option value="Fuerza"> Orden por Fuerza </option>
-            <option value="Mayor fuerza">Mayor fuerza</option>
-            <option value="Menor fuerza">Menor fuerza</option>
-          </select>
-          <select onChange={handleFilterType}>
-            <option value="type"> Orden por Tipo </option>
-            <option value="normal"> Normal </option>
-            <option value="flying"> Flying </option>
-            <option value="poison"> Poison </option>
-            <option value="ground"> Ground </option>
-            <option value="bug"> Bug </option>
-            <option value="fire"> Fire </option>
-            <option value="water"> Water </option>
-            <option value="grass"> Grass </option>
-            <option value="electric"> Electric </option>
-            <option value="fairy"> Fairy </option>
-          </select>
-          <select onChange={handleFilterCreated}>
-            <option value="Todos"> Orden Creados/Existentes </option>
-            <option value="Creados"> Creados </option>
-            <option value="Existentes"> Existentes </option>
-          </select>
-          <button className="clear-filtros">Limpiar Filtros</button>
+          <div className="filters">
+            Filtros
+            <p>Orden Alfabético: </p>
+            <select onChange={onSelectsChange}>
+              <option value="Filtro"> Orden alfabético</option>
+              <option value="Ascendente">Ascendente</option>
+              <option value="Descendente">Descendente</option>
+            </select>
+            <p>Orden por Fuerza: </p>
+            <select onChange={handleFilterAttack}>
+              <option value="Fuerza"> Orden por Fuerza </option>
+              <option value="Mayor fuerza">Mayor fuerza</option>
+              <option value="Menor fuerza">Menor fuerza</option>
+            </select>
+            <p>Orden por Tipo: </p>
+            <select onChange={handleFilterType}>
+              <option value="type"> Orden por Tipo </option>
+              <option value="normal"> Normal </option>
+              <option value="flying"> Flying </option>
+              <option value="poison"> Poison </option>
+              <option value="ground"> Ground </option>
+              <option value="bug"> Bug </option>
+              <option value="fire"> Fire </option>
+              <option value="water"> Water </option>
+              <option value="grass"> Grass </option>
+              <option value="electric"> Electric </option>
+              <option value="fairy"> Fairy </option>
+            </select>
+            <p>Orden Creados/Existentes: </p>
+            <select onChange={handleFilterCreated}>
+              <option value="Todos"> Orden Creados/Existentes </option>
+              <option value="Creados"> Creados </option>
+              <option value="Existentes"> Existentes </option>
+            </select>
+            <button className="clear-filtros">Limpiar Filtros</button>
+          </div>
         </div>
         <div className="home-content">
           <Paginado
@@ -121,7 +128,7 @@ export default function Home() {
               </fragment>
             );
           })}
-          {/* <Paginado
+          <Paginado
             pokemonsPerPage={pokemonsPerPage}
             allPokemons={allPokemons.length}
             paginated={paginated}
@@ -130,7 +137,7 @@ export default function Home() {
             currentPage={currentPage}
             currentPokemons={currentPokemons}
             indexOfLastPokemon={indexOfLastPokemon}
-          /> */}
+          />
         </div>
       </div>
     </div>

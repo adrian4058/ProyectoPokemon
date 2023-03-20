@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
@@ -8,11 +7,7 @@ export default function NavBar(props) {
     <nav className="navbar content">
       <div className="navbar__create">
         {props.currentComponent === "home" ? (
-          <Link
-            // onClick={handleClick}
-            className="navbar__button-create"
-            to="/create"
-          >
+          <Link className="navbar__button-create" to="/create">
             Crear Pokemon
           </Link>
         ) : (
@@ -34,10 +29,7 @@ export default function NavBar(props) {
         <a className="navbar__button" href="https://www.github.com/adrian4058">
           GitHub
         </a>
-        <a
-          className="navbar__button"
-          href="mailto:adrian_2016_@outlook.es"
-        >
+        <a className="navbar__button" href="mailto:adrian_2016_@outlook.es">
           Contacto
         </a>
       </div>

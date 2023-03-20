@@ -15,6 +15,7 @@
   font-weight: 600;
   margin-top: 15px;
 }
+
 .btn {
   background-color: #184e77;
   color: white;
@@ -22,8 +23,9 @@
   border-color: transparent;
   border-radius: 7px;
   transition-duration: 0.4s;
-  padding: 5px 10px;
-  margin-top: 15px;
+  padding: 7px 10px;
+  margin-top: 18px;
+  
   font-weight: 600;
 }
 

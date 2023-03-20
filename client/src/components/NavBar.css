@@ -14,6 +14,7 @@
   overflow: hidden;
 }
 .navbar {
+  position: fixed;
   background-color: hsl(192, 100%, 9%);
   display: flex;
   height: 50px;
@@ -21,6 +22,7 @@
   align-items: center;
   padding-top: 50px;
   padding-bottom: 50px;
+  z-index: 1;
 }
 
 .navbar__create {
@@ -50,7 +52,7 @@
   border-radius: 5px;
   font-weight: 600;
 
-  --c: #99d98c;
+  --c: #52b69a;
 
   /* box-shadow: 0 0 0 0.1em inset black; */
   --_g: linear-gradient(var(--c) 0 0) no-repeat;
@@ -61,7 +63,7 @@
   background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
   outline-offset: 0.1em;
   transition: background-size 0.4s, background-position 0s 0.4s;
-  background-color: #52b69a;
+  background-color: #fefae0;
 }
 .navbar__button-create:hover {
   color: black;

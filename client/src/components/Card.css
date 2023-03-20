@@ -1,6 +1,7 @@
 .stylesCard {
   background: #fefae0;
-  margin: 35px;
+  margin: 10px 35px;
+  margin-bottom: 15px;
   width: 17rem;
   border-radius: 20px;
   display: inline-block;
@@ -15,11 +16,11 @@
 
 .stylesCard:hover {
   box-shadow: 15px 15px 30px #76c893;
-  transform: translateY(-7%);
+  transform: translateY(-5%);
 }
 
 .name {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;;
   margin-top: 15px;
   font-size: 20px;
   color: var(--verydarkcyan);
