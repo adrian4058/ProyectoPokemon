@@ -1,30 +1,27 @@
-.stylesCard {
-  background: #fefae0;
-  margin: 10px 35px;
-  margin-bottom: 15px;
+/* .stylesCard {
+  background: rgba(210, 170, 247, 0.87);
+  margin: 35px;
   width: 17rem;
-  border-radius: 20px;
+  border-radius: 10px;
   display: inline-block;
   transition: all 400ms ease;
   box-sizing: content-box;
-  box-shadow: 2px 4px 10px 2px #168aad;
   min-height: 150px;
-  border: 1px transparent;
-  opacity: 0.85;
-  /* opacity para la transparencia */
+  border-color: #22043dda;
+  border-width: 1.5px;
+  border-style: solid;
 }
 
 .stylesCard:hover {
-  box-shadow: 15px 15px 30px #76c893;
-  transform: translateY(-5%);
+  box-shadow: 20px 20px 20px rgb(0, 0, 0, 0, 4);
+  transform: translateY(-3%);
 }
 
 .name {
-  font-family: "Poppins", sans-serif;;
-  margin-top: 15px;
+  font-family: "Sofia", cursive;
   font-size: 20px;
-  color: var(--verydarkcyan);
-  font-weight: 600;
+  color: #000000;
+  text-decoration: none;
 }
 
 .typeStyle {
@@ -34,8 +31,7 @@
   display: inline;
   padding-left: 3px;
   padding-right: 3px;
-  /* margin-top: 5px; */
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merienda", cursive;
   text-decoration: none;
 }
 
@@ -44,4 +40,169 @@ ul li {
   list-style-type: none;
   text-align: center;
   align-content: center;
+} */
+
+.fire {
+  background-color: #fd585a;
+}
+
+.fighting {
+  background-color: #c03028;
+}
+
+.flying {
+  background-color: #a890f0;
+}
+
+.poison {
+  background-color: #e665e6;
+}
+
+.ground {
+  background-color: #e0c068;
+}
+
+.rock {
+  background-color: #b8a038;
+}
+
+.bug {
+  background-color: #f19c79;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.steel {
+  background-color: #b8b8d0;
+}
+
+.water {
+  background-color: #96b3f8;
+}
+
+.electric {
+  background-color: #f8d030;
+}
+
+.psychic {
+  background-color: #f85888;
+}
+
+.ice {
+  background-color: #98d8d8;
+}
+
+.dragon {
+  background-color: #7038f8;
+}
+
+.dark {
+  background-color: #705848;
+}
+
+.grass {
+  background-color: #aad576;
+}
+
+.fairy {
+  background-color: #ffb7fa;
+}
+
+.card {
+  position: relative;
+  width: 230px;
+  height: 270px;
+  margin: 0px 25px;
+  margin-top: 45px;
+  margin-bottom: 10px;
+  width: 17rem;
+  border-radius: 10px;
+  display: inline-block;
+ 
+}
+
+.card:hover{
+  transform: translateY(-10%);
+  transition: 0.4s;
+}
+
+.card .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.5s;
+  box-shadow: 20px 20px 20px rgb(0, 0, 0, 0, 4)
+}
+
+.card .front {
+  transform: perspective(600px) rotateY(0deg);
+  box-shadow: 0 5px 10px #d9ed92;
+}
+
+.card .front img {
+   object-fit: cover;
+  filter: drop-shadow(-2px 2px 15px #fefae0); 
+}
+
+.card .front h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  color: black;
+  background: #fefae0;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.card .back {
+  transform: perspective(600px) rotateY(180deg);
+  /* background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f22394df-9a75-4771-8225-ea50370155c7/d4mh7q5-25a47434-05e7-413b-9934-7c555ab034e8.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2YyMjM5NGRmLTlhNzUtNDc3MS04MjI1LWVhNTAzNzAxNTVjN1wvZDRtaDdxNS0yNWE0NzQzNC0wNWU3LTQxM2ItOTkzNC03YzU1NWFiMDM0ZTguanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.o5MBcxD2GF6ZtvOpSmq2UBuRQ7wTjHLNgYN2f8AOyUU"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  padding: 15px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  box-shadow: 0 5px 10px #d9ed92;
+}
+.card .back .type-container h2 {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+.card .back .type-container .img-types img {
+  height: 50px;
+}
+.card .back .type-container .img-types {
+  position: relative;
+  height: 30px;
+  color: #000;
+  bottom: -190px;
+}
+
+.card .back .type-container p {
+  position: relative;
+  bottom: -200px;
+  color: #000;
+}
+
+.card:hover .front {
+  transform: perspective(600px) rotateY(180deg) ;
+}
+
+.card:hover .back {
+  transform: perspective(600px) rotateY(360deg) ;
 }

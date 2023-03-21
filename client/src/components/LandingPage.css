@@ -117,7 +117,7 @@ body {
 }
 
 .hero__texts {
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
 
   font-size: 20px;
   border-radius: 35px;

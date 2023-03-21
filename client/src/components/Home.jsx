@@ -14,6 +14,7 @@ import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import NavBar from "./NavBar";
 import "./Home.css";
+import loading from "./icons/loading.gif";
 
 const INITIAL_PAGE = 1;
 const FINAL_PAGE = 12;
@@ -67,22 +68,22 @@ export default function Home() {
         <div className="searchbar">
           <SearchBar />
           <div className="filters">
-            Filtros
+            FILTROS
             <p>Orden Alfabético: </p>
             <select onChange={onSelectsChange}>
-              <option value="Filtro"> Orden alfabético</option>
+              <option value="Filtro"> Por Defecto </option>
               <option value="Ascendente">Ascendente</option>
               <option value="Descendente">Descendente</option>
             </select>
             <p>Orden por Fuerza: </p>
             <select onChange={handleFilterAttack}>
-              <option value="Fuerza"> Orden por Fuerza </option>
+              <option value="Fuerza"> Por Defecto </option>
               <option value="Mayor fuerza">Mayor fuerza</option>
               <option value="Menor fuerza">Menor fuerza</option>
             </select>
             <p>Orden por Tipo: </p>
             <select onChange={handleFilterType}>
-              <option value="type"> Orden por Tipo </option>
+              <option value="type"> Todos los Tipos </option>
               <option value="normal"> Normal </option>
               <option value="flying"> Flying </option>
               <option value="poison"> Poison </option>
@@ -96,49 +97,55 @@ export default function Home() {
             </select>
             <p>Orden Creados/Existentes: </p>
             <select onChange={handleFilterCreated}>
-              <option value="Todos"> Orden Creados/Existentes </option>
+              <option value="Todos"> Todos </option>
               <option value="Creados"> Creados </option>
               <option value="Existentes"> Existentes </option>
             </select>
             <button className="clear-filtros">Limpiar Filtros</button>
           </div>
         </div>
-        <div className="home-content">
-          <Paginado
-            pokemonsPerPage={pokemonsPerPage}
-            allPokemons={allPokemons.length}
-            paginated={paginated}
-            handleNext={handleNext}
-            handlePrevious={handlePrevious}
-            currentPage={currentPage}
-            currentPokemons={currentPokemons}
-            indexOfLastPokemon={indexOfLastPokemon}
-          />
+        {allPokemons.length ? (
+          <div className="home-content">
+            <Paginado
+              pokemonsPerPage={pokemonsPerPage}
+              allPokemons={allPokemons.length}
+              paginated={paginated}
+              handleNext={handleNext}
+              handlePrevious={handlePrevious}
+              currentPage={currentPage}
+              currentPokemons={currentPokemons}
+              indexOfLastPokemon={indexOfLastPokemon}
+            />
 
-          {currentPokemons?.map((el) => {
-            return (
-              <fragment>
-                <Link to={"/home/" + el.id}>
-                  <Card
-                    name={el.name.toUpperCase()}
-                    image={el.image}
-                    types={el.types}
-                  />
-                </Link>
-              </fragment>
-            );
-          })}
-          <Paginado
-            pokemonsPerPage={pokemonsPerPage}
-            allPokemons={allPokemons.length}
-            paginated={paginated}
-            handleNext={handleNext}
-            handlePrevious={handlePrevious}
-            currentPage={currentPage}
-            currentPokemons={currentPokemons}
-            indexOfLastPokemon={indexOfLastPokemon}
-          />
-        </div>
+            {currentPokemons?.map((el) => {
+              return (
+                <fragment className="fragment">
+                  <Link to={"/home/" + el.id}>
+                    <Card
+                      name={el.name.toUpperCase()}
+                      image={el.image}
+                      types={el.types}
+                    />
+                  </Link>
+                </fragment>
+              );
+            })}
+            <Paginado
+              pokemonsPerPage={pokemonsPerPage}
+              allPokemons={allPokemons.length}
+              paginated={paginated}
+              handleNext={handleNext}
+              handlePrevious={handlePrevious}
+              currentPage={currentPage}
+              currentPokemons={currentPokemons}
+              indexOfLastPokemon={indexOfLastPokemon}
+            />
+          </div>
+        ) : (
+          <div className="home-loading">
+            <img src={loading} alt="Loading..." />
+          </div>
+        )}
       </div>
     </div>
   );
