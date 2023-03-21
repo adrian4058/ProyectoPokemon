@@ -1,7 +1,6 @@
 import React from "react";
 import "./Card.css";
 
-
 export default function Card({ name, image, types }) {
   return (
     <div className="coso">
@@ -22,16 +21,23 @@ export default function Card({ name, image, types }) {
         <div className="face back">
           <div className="type-container">
             <h1>{name}</h1>
-            <h2>Type</h2>
-           
+            <p >Types</p>
+            <h2 className={`type color-${types[0]}`}>
+              {" "}
+              {typeof types[0] === "string"
+                ? types[0].charAt(0).toUpperCase() + types[0].slice(1)
+                : types[0]?.name.charAt(0).toUpperCase() +
+                  types[0].name.slice(1)}
+              {typeof types[1] === "string"
+                ? " - " + types[1].charAt(0).toUpperCase() + types[1].slice(1)
+                : null}
+            </h2>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
 
 // export default function Card({ name, image, types }) {
 //   return (
@@ -48,12 +54,12 @@ export default function Card({ name, image, types }) {
 //         {}
 //         <ul className="typeStyle">
 //           <li className="type">
-//             {typeof types[0] === "string"
-//               ? types[0].charAt(0).toUpperCase() + types[0].slice(1)
-//               : types[0]?.name.charAt(0).toUpperCase() + types[0].name.slice(1)}
-//             {typeof types[1] === "string"
-//               ? " - " + types[1].charAt(0).toUpperCase() + types[1].slice(1)
-//               : null}
+// {typeof types[0] === "string"
+//   ? types[0].charAt(0).toUpperCase() + types[0].slice(1)
+//   : types[0]?.name.charAt(0).toUpperCase() + types[0].name.slice(1)}
+// {typeof types[1] === "string"
+//   ? " - " + types[1].charAt(0).toUpperCase() + types[1].slice(1)
+//   : null}
 //           </li>
 //         </ul>
 //       {/* </div> */}
