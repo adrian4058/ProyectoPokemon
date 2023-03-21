@@ -20,7 +20,7 @@
   width: 80vw;
 }
 
-.fragment{
+.fragment {
   display: inline-block;
 
   /* width: 300px;
@@ -36,9 +36,8 @@
 
 .home-content nav ul {
   padding: 0;
-/* margin-bottom: 30px; */
+  /* margin-bottom: 30px; */
 }
-
 
 .searchbar {
   margin: 15px 40px;
@@ -75,9 +74,12 @@
   padding: 7px;
   margin-top: 40px;
   background-color: #7d8597;
-  color: white;
   /* outline: none; */
   font-weight: 600;
+}
+
+.clear-filtros a {
+  color: white;
 }
 
 .filters {

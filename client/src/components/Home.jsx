@@ -101,7 +101,9 @@ export default function Home() {
               <option value="Creados"> Creados </option>
               <option value="Existentes"> Existentes </option>
             </select>
-            <button className="clear-filtros">Limpiar Filtros</button>
+            <button className="clear-filtros">
+              <a href="/home">Limpiar Filtros</a>
+            </button>
           </div>
         </div>
         {allPokemons.length ? (
@@ -125,12 +127,13 @@ export default function Home() {
                       name={el.name.toUpperCase()}
                       image={el.image}
                       types={el.types}
+                      id={el.id}
                     />
                   </Link>
                 </fragment>
               );
             })}
-            <Paginado
+            {/* <Paginado
               pokemonsPerPage={pokemonsPerPage}
               allPokemons={allPokemons.length}
               paginated={paginated}
@@ -139,7 +142,7 @@ export default function Home() {
               currentPage={currentPage}
               currentPokemons={currentPokemons}
               indexOfLastPokemon={indexOfLastPokemon}
-            />
+            /> */}
           </div>
         ) : (
           <div className="home-loading">
