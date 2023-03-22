@@ -26,9 +26,13 @@ export default function Card({ name, image, types, id }) {
               {id.length > 4 ? (
                 <>
                   {types.length === 2 ? (
-                    <>{types[0].name + " - " + types[1].name}</>
+                    <>
+                      {types[0].name.toUpperCase() +
+                        " - " +
+                        types[1].name.toUpperCase()}
+                    </>
                   ) : (
-                    <>{types[0].name}</>
+                    <>{types[0].name.toUpperCase()}</>
                   )}
                 </>
               ) : types.length === 2 ? (
@@ -36,7 +40,6 @@ export default function Card({ name, image, types, id }) {
               ) : (
                 <>{types[0].toUpperCase()}</>
               )}
-              
             </h2>
           </div>
         </div>
