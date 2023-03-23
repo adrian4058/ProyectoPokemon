@@ -123,7 +123,6 @@ export default function PokemonCreate() {
   };
 
   function handleCreate() {
-    history.push("/home");
     alert("¡Pokémon creado con éxito!");
   }
 
@@ -133,7 +132,7 @@ export default function PokemonCreate() {
 
     setPokemon({
       name: "",
-      types: [],
+      types: pokemon.types,
       image: "",
       hitpoint: 0,
       attack: 0,
@@ -142,6 +141,7 @@ export default function PokemonCreate() {
       height: 0,
       weight: 0,
     });
+    history.push("/home");
   };
 
   useEffect(() => {
@@ -247,6 +247,7 @@ export default function PokemonCreate() {
                     value={pokemon.weight}
                     className="input"
                   />{" "}
+                  {console.log(pokemon.weight)}
                   {errors.weight && <p className="error"> {errors.weight}</p>}
                 </div>
               </div>
@@ -256,8 +257,9 @@ export default function PokemonCreate() {
                     <option value={e.name}>{e.name}</option>
                   ))}
                 </select>
+
                 <ul>
-                  <li>{pokemon.types.map((e) => e.toUpperCase() + ", ")}</li>
+                  <li>{pokemon.types.map((e) => e + ", ")}</li>
                 </ul>
                 {errors.types && selectedType === null && (
                   <p className="error-type"> {errors.types}</p>

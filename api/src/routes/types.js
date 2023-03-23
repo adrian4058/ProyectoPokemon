@@ -8,7 +8,6 @@ router.get("/", async (req, res, next) => {
   try {
     const api = await axios.get("https://pokeapi.co/api/v2/type"); //Trae todos los tipos
     const types = await api.data; // trae la respuesta en data
-    console.log(types);
     for (t of types.results) {
       //Entra a la propiedad results, a cada elemento..
       const find = await Type.findOne({ where: { name: t.name } }); // Entra a la propiedad name y busca si ya existe

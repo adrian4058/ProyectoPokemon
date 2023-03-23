@@ -23,19 +23,7 @@ export default function Card({ name, image, types, id }) {
             <h1>{name}</h1>
             <p>Types</p>
             <h2 className={`type color-${types[0]}`}>
-              {id.length > 4 ? (
-                <>
-                  {types.length === 2 ? (
-                    <>
-                      {types[0].name.toUpperCase() +
-                        " - " +
-                        types[1].name.toUpperCase()}
-                    </>
-                  ) : (
-                    <>{types[0].name.toUpperCase()}</>
-                  )}
-                </>
-              ) : types.length === 2 ? (
+              {types.length === 2 ? (
                 <>{types[0].toUpperCase() + " - " + types[1].toUpperCase()}</>
               ) : (
                 <>{types[0].toUpperCase()}</>

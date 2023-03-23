@@ -6,6 +6,70 @@
   background-color: #fd585a;
 }
 
+.color-fighting {
+  background-color: #c03028 !important;
+}
+
+.fighting {
+  background-color: #c03028;
+}
+
+.color-rock {
+  background-color: #b8a038 !important;
+}
+
+.rock {
+  background-color: #b8a038;
+}
+
+.color-ghost {
+  background-color: #705898 !important;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.color-steel {
+  background-color: #b8b8d0 !important;
+}
+
+.steel {
+  background-color: #b8b8d0;
+}
+
+.color-psychic {
+  background-color: #f85888 !important;
+}
+
+.psychic {
+  background-color: #f85888;
+}
+
+.color-ice {
+  background-color: #98d8d8 !important;
+}
+
+.ice {
+  background-color: #98d8d8;
+}
+
+.color-dragon {
+  background-color: #7038f8 !important;
+}
+
+.dragon {
+  background-color: #7038f8;
+}
+
+.color-dark {
+  background-color: #705848 !important;
+}
+
+.dark {
+  background-color: #705848;
+}
+
 .color-flying {
   background-color: #a890f0 !important;
 }

@@ -94,6 +94,16 @@ export default function Home() {
               <option value="grass"> Grass </option>
               <option value="electric"> Electric </option>
               <option value="fairy"> Fairy </option>
+              <option value="fighting"> Fighting </option>
+              <option value="rock"> Rock </option>
+              <option value="ghost"> Ghost </option>
+              <option value="steel"> Steel </option>
+              <option value="psychic"> Psychic </option>
+              <option value="ice"> Ice </option>
+              <option value="dragon"> Dragon </option>
+              <option value="dark"> Dark </option>
+              <option value="unknown"> Unknown </option>
+              <option value="shadow"> Shadow </option>
             </select>
             <p>Orden Creados/Existentes: </p>
             <select onChange={handleFilterCreated}>
