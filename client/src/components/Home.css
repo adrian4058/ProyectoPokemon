@@ -28,10 +28,16 @@
 }
 
 .home-loading {
+  display: flex;
+  flex-direction: column;
   margin-top: 200px;
+  margin-bottom: 10px;
   align-items: center;
   justify-content: center;
   width: 80vw;
+  font-style: var(--open-sans);
+  font-size: 26px;
+  color: white;
 }
 
 .home-content nav ul {
