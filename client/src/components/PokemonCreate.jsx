@@ -4,48 +4,18 @@ import { createPokemon, getType } from "../actions/index";
 import { useDispatch, useSelector } from "react-redux";
 import "./PokemonCreate.css";
 import NavBar from "./NavBar";
-
-const validpokemon = (pokemon) => {
-  let errors = {};
-  if (!pokemon.name) {
-    errors.name = "Se requiere un nombre.";
-  }
-  if (pokemon.hitpoint < 1) {
-    errors.hitpoint = "Vida debe ser mayor a 0.";
-  }
-  if (!pokemon.image) {
-    errors.image = "Se requiere link de imágen.";
-  }
-  if (pokemon.attack < 1) {
-    errors.attack = "Ataque debe ser mayor a 0.";
-  }
-  if (pokemon.defense < 1) {
-    errors.defense = "Defensa debe ser mayor a 0.";
-  }
-  if (pokemon.speed < 1) {
-    errors.speed = "Velocidad debe ser mayor a 0.";
-  }
-  if (pokemon.weight < 1) {
-    errors.weight = "Peso debe ser mayor a 0.";
-  }
-
-  if (pokemon.height < 1) {
-    errors.height = "Altura debe ser mayor a 0.";
-  }
-  if (!pokemon.types.length) {
-    errors.types = "Se requiere al menos un tipo.";
-  }
-  for (const key in errors) {
-    return { [key]: errors[key] };
-  }
-  return {};
-};
+import { useHistory } from "react-router-dom";
 
 export default function PokemonCreate() {
+  const history = useHistory();
+
   const dispatch = useDispatch();
   const types = useSelector((state) => state.types);
 
   const [errors, setErrors] = useState({});
+  const [selectedType, setSelectedType] = useState(null);
+  const [formComplete, setFormComplete] = useState(false);
+
   const [selectedCount, setSelectedCount] = useState(0);
 
   const [pokemon, setPokemon] = useState({
@@ -60,6 +30,44 @@ export default function PokemonCreate() {
     weight: 0,
   });
 
+  const validpokemon = (pokemon) => {
+    console.log(pokemon);
+    console.log(pokemon.types.length);
+    let errors = {};
+    if (!pokemon.name) {
+      errors.name = "Se requiere un nombre.";
+    }
+    if (pokemon.hitpoint < 1) {
+      errors.hitpoint = "Vida debe ser mayor a 0.";
+    }
+    if (typeof pokemon.image !== "string") {
+      errors.image = "Se requiere link de imágen.";
+    }
+    if (pokemon.attack < 1) {
+      errors.attack = "Ataque debe ser mayor a 0.";
+    }
+    if (pokemon.defense < 1) {
+      errors.defense = "Defensa debe ser mayor a 0.";
+    }
+    if (pokemon.speed < 1) {
+      errors.speed = "Velocidad debe ser mayor a 0.";
+    }
+    if (pokemon.weight < 1) {
+      errors.weight = "Peso debe ser mayor a 0.";
+    }
+
+    if (pokemon.height < 1) {
+      errors.height = "Altura debe ser mayor a 0.";
+    }
+    if (pokemon.types.length === 0) {
+      errors.types = "Se requiere al menos un tipo.";
+    }
+    for (const key in errors) {
+      return { [key]: errors[key] };
+    }
+    return {};
+  };
+
   const handleSelect = (e) => {
     const selectedType = e.target.value;
 
@@ -68,6 +76,9 @@ export default function PokemonCreate() {
       ...prevPokemon,
       types: [...prevPokemon.types, selectedType],
     }));
+
+    // Actualiza el estado de selectedType
+    setSelectedType(selectedType);
 
     // Incrementa el contador de selección
     setSelectedCount((prevCount) => prevCount + 1);
@@ -79,6 +90,18 @@ export default function PokemonCreate() {
       unselectedOptions.forEach((option) => {
         option.disabled = true;
       });
+    }
+  };
+
+  const checkFormCompletion = () => {
+    const formFields = Object.values(pokemon);
+    const incompleteFields = formFields.filter(
+      (field) => field === "" || field === 0
+    );
+    if (incompleteFields.length === 0) {
+      setFormComplete(true);
+    } else {
+      setFormComplete(false);
     }
   };
 
@@ -96,12 +119,18 @@ export default function PokemonCreate() {
       const firstKey = Object.keys(newErrors)[0];
       return firstKey ? { [firstKey]: newErrors[firstKey] } : {};
     });
+    checkFormCompletion();
   };
+
+  function handleCreate() {
+    history.push("/home");
+    alert("¡Pokémon creado con éxito!");
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
     dispatch(createPokemon(pokemon));
-    // alert("Personaje creado con exito");
+
     setPokemon({
       name: "",
       types: [],
@@ -127,7 +156,7 @@ export default function PokemonCreate() {
           <h3 className="title">Crea tu Pokémon</h3>
           <form className="form-submit" onSubmit={onSubmit}>
             <div className="form-total">
-              <div className="children-one margin">
+              <div className="children-one ">
                 <div>
                   <label>Nombre: </label>
                   <input
@@ -175,7 +204,7 @@ export default function PokemonCreate() {
                   {errors.attack && <p className="error"> {errors.attack}</p>}
                 </div>
               </div>
-              <div className="children-two margin">
+              <div className="children-two ">
                 <div>
                   <label htmlFor="">Defensa: </label>
                   <input
@@ -221,27 +250,40 @@ export default function PokemonCreate() {
                   {errors.weight && <p className="error"> {errors.weight}</p>}
                 </div>
               </div>
-              <p className="types-s margin">
+              <p className="types-s ">
                 <select onChange={handleSelect}>
                   {types.map((e) => (
                     <option value={e.name}>{e.name}</option>
                   ))}
                 </select>
                 <ul>
-                  <li>{pokemon.types.map((e) => e + " , ")}</li>
+                  <li>{pokemon.types.map((e) => e.toUpperCase() + ", ")}</li>
                 </ul>
+                {errors.types && selectedType === null && (
+                  <p className="error-type"> {errors.types}</p>
+                )}
               </p>{" "}
-              {errors.types && <p className="error"> {errors.types}</p>}
-              <div className="buttons argin">
-                <Link to="/home">
-                  <button type="submit" className="atras">
-                    Atrás
+              <div className="buttons">
+                <div className="clean-form">
+                  <a className="atras" href="/create">
+                    Limpiar Form
+                  </a>
+                </div>
+                <div className="create-back">
+                  <Link to="/home">
+                    <button type="submit" className="bottom">
+                      Atrás
+                    </button>
+                  </Link>
+                  <button
+                    disabled={!formComplete}
+                    className="bottom"
+                    type="submit"
+                    onClick={handleCreate}
+                  >
+                    Crear Pokemon
                   </button>
-                </Link>
-                <button type="submit" className="bottom">
-                  Crear Pokemon
-                </button>
-                <a href="/create">Limpiar Form</a>
+                </div>
               </div>
             </div>
           </form>
