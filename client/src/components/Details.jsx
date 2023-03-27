@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../actions";
-import { Link } from "react-router-dom";
 import "./Details.css";
 import NavBar from "./NavBar";
 
@@ -65,39 +64,4 @@ export default function Detail(props) {
   );
 }
 
-{
-  /* <img
-            src={
-              "https://cdn.dribbble.com/users/1204535/screenshots/11195730/media/6823f0d3a3fc4ccf925df7bc710cd017.gif"
-            }
-            // width="250px"
-            // height="300px"
-            alt="Not found"
-          /> */
-}
 
-// {p.types.length === 2 ? (
-//   <div>
-//     <h3 className="type1">
-//       <ul className="type">
-//         <li>
-//           {typeof p.types[0] === "string"
-//             ? p.types[0]
-//             : p.types[0]?.name}
-//           -
-//           {typeof p.types[1] === "string"
-//             ? p.types[1]
-//             : p.types[1]?.name}
-//         </li>
-//       </ul>
-//     </h3>
-//   </div>
-// ) : (
-//   <div>
-//     <h3 className="type2">
-//       {typeof p.types[0] === "string"
-//         ? p.types[0]
-//         : p.types[0]?.name}
-//     </h3>
-//   </div>
-// )}
