@@ -21,6 +21,7 @@ export default function Card({ name, image, types, id }) {
         <div className="face back">
           <div className="type-container">
             <h1>{name}</h1>
+            <h4>Ver detalles</h4>
             <p>Types</p>
             <h2 className={`type color-${types[0]}`}>
               {types.length === 2 ? (

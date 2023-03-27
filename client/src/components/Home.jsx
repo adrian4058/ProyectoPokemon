@@ -155,9 +155,9 @@ export default function Home() {
             /> */}
           </div>
         ) : (
-          <div className="home-loading">No se encuentran Pokemones de este tipo 
-          
-            <img src={loading} alt="Loading..."/>
+          <div className="home-loading">
+            No se encuentran Pokemones de este tipo
+            <img src={loading} alt="Loading..." />
           </div>
         )}
       </div>

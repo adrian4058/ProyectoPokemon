@@ -259,7 +259,7 @@ export default function PokemonCreate() {
                 </select>
 
                 <ul>
-                  <li>{pokemon.types.map((e) => e + ", ")}</li>
+                  <li>{pokemon.types.map((e) => e.toUpperCase() + ", ")}</li>
                 </ul>
                 {errors.types && selectedType === null && (
                   <p className="error-type"> {errors.types}</p>
