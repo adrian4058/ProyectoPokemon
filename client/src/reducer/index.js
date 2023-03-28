@@ -38,7 +38,7 @@ function rootReducers(state = initialState, action) {
       const createdFilter =
         action.payload === "Creados"
           ? state.allPokemons.filter((e) => e.id.length > 2)
-          : state.allPokemons.filter((e) => e.id <= 40);
+          : state.allPokemons.filter((e) => e.id <= 120);
       return {
         ...state,
         pokemons:

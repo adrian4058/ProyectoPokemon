@@ -13,7 +13,6 @@ export default function Paginado({
   const pageNumber = [];
   for (let i = 1; i <= Math.ceil(allPokemons / pokemonsPerPage); i++)
     pageNumber.push(i);
-  
 
   return (
     <nav>
