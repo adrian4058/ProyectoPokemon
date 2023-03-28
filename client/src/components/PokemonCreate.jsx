@@ -182,7 +182,7 @@ export default function PokemonCreate() {
                   <label>Nombre: </label>
                   <input
                     onChange={inputChange}
-                    placeholder=" Nombre pokémon"
+                    placeholder=" Nombre pokémon..."
                     type="text"
                     name="name"
                     value={pokemon.name}

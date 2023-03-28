@@ -43,6 +43,7 @@
 }
 
 .about-paragraph p {
+  text-align: justify;
   padding: 0px 30px;
   color: black;
   font-family: var(--opens-sans);
