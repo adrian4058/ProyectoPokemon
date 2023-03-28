@@ -13,7 +13,7 @@ export default function LandingPage() {
           </a>
         </figure>
 
-        <Link to="/home" className="hero__cta">
+        <Link to="/about" className="hero__cta">
           About Me
         </Link>
       </nav>

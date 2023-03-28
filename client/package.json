@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.3.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.1",
@@ -11,8 +10,6 @@
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-emoji-render": "^2.0.1",
-    "react-icons": "^4.7.1",
     "react-redux": "^7.2.9",
     "react-router-dom": "^5.3.4",
     "react-scripts": "4.0.3",
