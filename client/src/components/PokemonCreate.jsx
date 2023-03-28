@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { createPokemon, getType } from "../actions/index";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 
 export default function PokemonCreate() {
   const history = useHistory();
+  const selectRef = useRef(null);
 
   const dispatch = useDispatch();
   const types = useSelector((state) => state.types);
@@ -66,6 +67,26 @@ export default function PokemonCreate() {
       return { [key]: errors[key] };
     }
     return {};
+  };
+
+  const handleDelete = (typeToDelete) => {
+    // Elimina el tipo seleccionado de la lista de tipos de Pokemon
+    setPokemon((prevPokemon) => ({
+      ...prevPokemon,
+      types: prevPokemon.types.filter((type) => type !== typeToDelete),
+    }));
+
+    // Restablece el estado de selectedType a null
+    setSelectedType(null);
+
+    // Reduce el contador de selección en uno
+    setSelectedCount((prevCount) => prevCount - 1);
+
+    // Habilita todos los options del select
+    const options = Array.from(selectRef.current.options);
+    options.forEach((option) => {
+      option.disabled = false;
+    });
   };
 
   const handleSelect = (e) => {
@@ -161,6 +182,7 @@ export default function PokemonCreate() {
                   <label>Nombre: </label>
                   <input
                     onChange={inputChange}
+                    placeholder=" Nombre pokémon"
                     type="text"
                     name="name"
                     value={pokemon.name}
@@ -171,6 +193,7 @@ export default function PokemonCreate() {
                 <div>
                   <label htmlFor="">Imagen: </label>
                   <input
+                    placeholder=" Agrega url imágen..."
                     onChange={inputChange}
                     name="image"
                     type="text"
@@ -252,15 +275,24 @@ export default function PokemonCreate() {
                 </div>
               </div>
               <p className="types-s ">
-                <select onChange={handleSelect}>
+                <select onChange={handleSelect} ref={selectRef}>
                   {types.map((e) => (
-                    <option value={e.name}>{e.name}</option>
+                    <option value={e.name}>{e.name.toUpperCase()}</option>
                   ))}
                 </select>
+                {pokemon.types.map((type) => (
+                  <div
+                    className={`type-create color-${pokemon.types[0]}`}
+                    key={type}
+                  >
+                    <span>{type.toUpperCase()}</span>
+                    <button onClick={() => handleDelete(type)}>X</button>
+                  </div>
+                ))}
 
-                <ul>
-                  <li>{pokemon.types.map((e) => e.toUpperCase() + ", ")}</li>
-                </ul>
+                {/* <ul>
+                  <li className={`color-${pokemon.types[0]}`}>{pokemon.types.map((e) => e.toUpperCase() + ", ")}</li>
+                </ul> */}
                 {errors.types && selectedType === null && (
                   <p className="error-type"> {errors.types}</p>
                 )}
