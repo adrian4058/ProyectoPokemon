@@ -13,7 +13,6 @@ export default function Paginado({
   const pageNumber = [];
   for (let i = 1; i <= Math.ceil(allPokemons / pokemonsPerPage); i++)
     pageNumber.push(i);
-  console.log(pageNumber);
 
   return (
     <nav>
@@ -24,14 +23,17 @@ export default function Paginado({
             className="btn"
             onClick={handlePrevious}
           >
-            Prev
+            {"Prev"}
           </button>
         </li>
 
         {pageNumber &&
           pageNumber.map((number) => (
             <li className="number" key={number}>
-              <button className="btn" onClick={() => paginated(number)}>
+              <button
+                className={currentPage === number ? "btn-current" : "btn"}
+                onClick={() => paginated(number)}
+              >
                 {number}
               </button>
             </li>
@@ -42,7 +44,7 @@ export default function Paginado({
             disabled={currentPokemons.length < pokemonsPerPage}
             onClick={handleNext}
           >
-            Next
+            {"Next"}
           </button>
         </li>
       </ul>

@@ -14,7 +14,7 @@ import Paginado from "./Paginado";
 import SearchBar from "./SearchBar";
 import NavBar from "./NavBar";
 import "./Home.css";
-import Footer from "./Footer";
+import loading from "./icons/loading.gif";
 
 const INITIAL_PAGE = 1;
 const FINAL_PAGE = 12;
@@ -62,74 +62,105 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <NavBar />
-      <SearchBar className="search" />
-      <div>
-        <select  onChange={onSelectsChange}>
-          <option value="Filtro"> A-Z:</option>
-          <option value="Ascendente">Ascendente</option>
-          <option value="Descendente">Descendente</option>
-        </select>
-        <select onChange={handleFilterAttack}>
-          <option value="Fuerza"> Fuerza </option>
-          <option value="Mayor fuerza">Mayor fuerza</option>
-          <option value="Menor fuerza">Menor fuerza</option>
-        </select>
-        <select onChange={handleFilterType}>
-          <option value="type"> Tipo </option>
-          <option value="normal"> Normal </option>
-          <option value="flying"> Flying </option>
-          <option value="poison"> Poison </option>
-          <option value="ground"> Ground </option>
-          <option value="bug"> Bug </option>
-          <option value="fire"> Fire </option>
-          <option value="water"> Water </option>
-          <option value="grass"> Grass </option>
-          <option value="electric"> Electric </option>
-          <option value="fairy"> Fairy </option>
-        </select>
-        <select onChange={handleFilterCreated}>
-          <option value="Todos"> Todos </option>
-          <option value="Creados"> Creados </option>
-          <option value="Existentes"> Existentes </option>
-        </select>
-        <Paginado
-          pokemonsPerPage={pokemonsPerPage}
-          allPokemons={allPokemons.length}
-          paginated={paginated}
-          handleNext={handleNext}
-          handlePrevious={handlePrevious}
-          currentPage={currentPage}
-          currentPokemons={currentPokemons}
-          indexOfLastPokemon={indexOfLastPokemon}
-        />
+    <div className="home">
+      <NavBar currentComponent="home" />
+      <div className="home-filter">
+        <div className="searchbar">
+          <SearchBar />
+          <div className="filters">
+            FILTROS
+            <p>Orden Alfabético: </p>
+            <select onChange={onSelectsChange}>
+              <option value="Filtro"> Por Defecto </option>
+              <option value="Ascendente">Ascendente</option>
+              <option value="Descendente">Descendente</option>
+            </select>
+            <p>Orden por Fuerza: </p>
+            <select onChange={handleFilterAttack}>
+              <option value="Fuerza"> Por Defecto </option>
+              <option value="Mayor fuerza">Mayor fuerza</option>
+              <option value="Menor fuerza">Menor fuerza</option>
+            </select>
+            <p>Orden por Tipo: </p>
+            <select onChange={handleFilterType}>
+              <option value="type"> Todos los Tipos </option>
+              <option value="normal"> Normal </option>
+              <option value="flying"> Flying </option>
+              <option value="poison"> Poison </option>
+              <option value="ground"> Ground </option>
+              <option value="bug"> Bug </option>
+              <option value="fire"> Fire </option>
+              <option value="water"> Water </option>
+              <option value="grass"> Grass </option>
+              <option value="electric"> Electric </option>
+              <option value="fairy"> Fairy </option>
+              <option value="fighting"> Fighting </option>
+              <option value="rock"> Rock </option>
+              <option value="ghost"> Ghost </option>
+              <option value="steel"> Steel </option>
+              <option value="psychic"> Psychic </option>
+              <option value="ice"> Ice </option>
+              <option value="dragon"> Dragon </option>
+              <option value="dark"> Dark </option>
+              <option value="unknown"> Unknown </option>
+              <option value="shadow"> Shadow </option>
+            </select>
+            <p>Orden Creados/Existentes: </p>
+            <select onChange={handleFilterCreated}>
+              <option value="Todos"> Todos </option>
+              <option value="Creados"> Creados </option>
+              <option value="Existentes"> Existentes </option>
+            </select>
+            <button className="clear-filtros">
+              <a href="/home">Limpiar Filtros</a>
+            </button>
+          </div>
+        </div>
+        {allPokemons.length ? (
+          <div className="home-content">
+            <Paginado
+              pokemonsPerPage={pokemonsPerPage}
+              allPokemons={allPokemons.length}
+              paginated={paginated}
+              handleNext={handleNext}
+              handlePrevious={handlePrevious}
+              currentPage={currentPage}
+              currentPokemons={currentPokemons}
+              indexOfLastPokemon={indexOfLastPokemon}
+            />
 
-        {currentPokemons?.map((el) => {
-          return (
-             <fragment>
-            <Link to={"/home/" + el.id}>
-              <Card
-                name={el.name[0].toUpperCase() + el.name.slice(1)}
-                image={el.image}
-                types={el.types}
-              />
-            </Link>
-             </fragment>
-          );
-        })}
-        <Paginado
-          pokemonsPerPage={pokemonsPerPage}
-          allPokemons={allPokemons.length}
-          paginated={paginated}
-          handleNext={handleNext}
-          handlePrevious={handlePrevious}
-          currentPage={currentPage}
-          currentPokemons={currentPokemons}
-          indexOfLastPokemon={indexOfLastPokemon}
-        />
+            {currentPokemons?.map((el) => {
+              return (
+                <fragment className="fragment">
+                  <Link to={"/home/" + el.id}>
+                    <Card
+                      name={el.name.toUpperCase()}
+                      image={el.image}
+                      types={el.types}
+                      id={el.id}
+                    />
+                  </Link>
+                </fragment>
+              );
+            })}
+            {/* <Paginado
+              pokemonsPerPage={pokemonsPerPage}
+              allPokemons={allPokemons.length}
+              paginated={paginated}
+              handleNext={handleNext}
+              handlePrevious={handlePrevious}
+              currentPage={currentPage}
+              currentPokemons={currentPokemons}
+              indexOfLastPokemon={indexOfLastPokemon}
+            /> */}
+          </div>
+        ) : (
+          <div className="home-loading">
+            No se encuentran Pokemones de este tipo
+            <img src={loading} alt="Loading..." />
+          </div>
+        )}
       </div>
-      <Footer className="footer" />
     </div>
   );
 }

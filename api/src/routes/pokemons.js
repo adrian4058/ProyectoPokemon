@@ -43,17 +43,6 @@ router.get("/:id", async (require, response, next) => {
   }
 });
 
-// router.delete("/:id", async (require, response) => {
-//   try {
-//     const delete_pokemon = await allPokemons();
-//     delete_pokemon = delete_pokemon.filter(
-//       ({ id }) => id !== require.params.id
-//     );
-//     response.status(200).json(delete_pokemon);
-//   } catch (error) {
-//     response.send(error);
-//   }
-// });
 
 router.post("/", async (req, res, next) => {
   //Ruta de creacion del pokemon
@@ -85,11 +74,22 @@ router.post("/", async (req, res, next) => {
       weight,
       types,
     });
-    if (newPokemon) {
-      res.status(200).send(newPokemon);
-    } else {
-      res.status(404).json({ info: "no se pudo crear el pokemon" });
-    }
+
+    console.log(newPokemon.types)
+
+    let pokemonAlterar = await Pokemon.findByPk(newPokemon.id);
+    let typesId = types.map((x) => {
+      return Type.findAll({
+        where: { name: x },
+      });
+    });
+    typesId = await (await Promise.all(typesId)).flat();
+    typesId: typesId.map((x) => x.id);
+    
+    // console.log(pokemonAlterar);
+    const devolver = pokemonAlterar.addType(typesId);
+    console.log("funciono");
+    res.json(devolver);
   } catch (error) {
     res.send(error);
   }

@@ -1,31 +1,110 @@
-div select {
-  margin-left: 50px;
-  border-radius: 4px;
-  padding: 7px;
-  margin-top: 10px;
-  border: none !important;
-  background-color: #168AAD;
-  color: white;
-  outline: none;
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
-.footer {
+
+.home {
+  height: 100%;
+}
+
+.home-filter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-content {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  /* align-items: center;
+  justify-content: center; */
+  width: 80vw;
+}
+
+.fragment {
+  display: inline-block;
+
+  /* width: 300px;
+  height: 350px; */
+}
+
+.home-loading {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 80vw;
+  font-style: var(--open-sans);
+  font-size: 26px;
+  color: white;
+}
+
+.home-content nav ul {
+  padding: 0;
+  /* margin-bottom: 30px; */
+}
+
+.searchbar {
+  margin: 15px 40px;
+  margin-top: 110px;
   display: flex;
   justify-content: center;
+  align-items: baseline;
+}
+
+.searchbar select {
+  display: flex;
   align-items: center;
+  border-radius: 4px;
+  padding: 7px;
+  margin-top: 25px;
+  border: none !important;
   background-color: #184e77;
-  height: 60px;
-  border-radius: 10px;
-}
-.footer a {
-  margin: 0 20px;
   color: white;
-  transition: all 0.3s ease-in-out;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
 }
 
-.footer a:hover {
-  color: #0077b5;
+.searchbar select option {
+  color: white;
 }
 
-.footer svg {
-  vertical-align: middle;
+.clear-filtros {
+  max-width: 60%;
+  display: flex;
+  border: 2px solid black;
+  align-items: center;
+  border-radius: 4px;
+  padding: 7px;
+  margin-top: 40px;
+  background-color: #7d8597;
+  /* outline: none; */
+  font-weight: 600;
+}
+
+.clear-filtros a {
+  color: white;
+}
+
+.filters {
+  background-color: #fefae0;
+  font-family: var(--poppins);
+  border: 1px solid;
+  border-radius: 15px;
+  padding: 20px 30px;
+  position: fixed;
+  margin-top: 80px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters p {
+  margin-top: 20px;
+  margin-bottom: -22px;
+  font-family: var(--open-sans);
+  text-decoration: underline;
+  font-size: 14px;
 }

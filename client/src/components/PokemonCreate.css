@@ -1,68 +1,208 @@
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 
 .form {
-  width: 300px;
-  height: 660x;
-  padding: 15px;
-  margin: 0px;
-  background: rgba(10, 59, 105, 0.61);
-  margin-left: auto;
-  margin-right: auto;
-  text-shadow: 1px 1px 2px rgb(0, 0, 0);
-}
-.input {
-  outline: none;
-}
-.title {
-  font-size: 23px;
-  color: rgb(0, 0, 0);
-  font-family: Geneva, Tahoma, sans-serif;
+  height: 100%;
 }
 
-label {
-  margin: 7px;
-  display: block;
-  padding-left: 15px;
-  text-indent: -15px;
-  color: #fff;
-  outline: none;
-}
-.error {
-  color: rgb(255, 2, 2);
-  margin-top: 2px;
-  font-size: 14px;
-}
-
-.types-s {
+.form-content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+}
+
+.form-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: var(--open-sans);
+  font-size: 28px;
+  font-weight: 900;
+  margin-top: 120px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-radius: 15px 15px 0px 0px;
+  justify-content: center;
+  color: white;
+  background-color: #184e77;
+  text-decoration: underline;
+  z-index: 1;
+}
+
+.form-submit {
+  display: flex;
+  justify-content: center;
+}
+
+.form-total {
+  margin-top: -25px;
+  font-family: var(--poppins);
+  background-color: #fefae0;
+  display: flex;
+  justify-content: space-around;
+  width: 80vw;
+  height: 70vh;
+  border-radius: 0px 0px 15px 15px;
+}
+
+.children-one {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.children-one div {
+  margin: 40px 0;
+}
+.children-two div {
+  margin: 40px 0;
+}
+
+.children-two {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttons .clean-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 42px;
+}
+
+.buttons .create-back {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 42px;
+}
+
+.buttons .atras {
+  border-radius: 4px;
+  padding: 7px;
+  border: 2px solid black;
+  background-color: #7d8597;
+  color: white;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin: 0px 10px;
+}
+
+.buttons .atras:hover {
+  box-shadow: 0 0 7px 0 red;
+  transition: 0.4s;
 }
 
 .bottom {
-  background-color: rgb(26, 0, 51);
-  border-radius: 5px;
-  padding: 8px;
-  color: rgb(243, 231, 255);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 12px;
+  border-radius: 4px;
+  padding: 7px;
+  border: none !important;
+  background-color: #184e77;
+  color: white;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px 10px;
   cursor: pointer;
 }
 
-.atras {
-  background-color: rgb(26, 0, 51);
-  border-radius: 5px;
-  color: rgb(243, 231, 255);
-  margin-right: 20px;
-  cursor: pointer;
-  padding: 8px;
+.bottom:hover {
+  background-color: #34a0a4;
+  transition: 0.4s;
+  box-shadow: 0 0 7px 0 #184e77;
+  /* color: black; */
 }
 
-button {
-  align-content: center;
-  margin-top: 5px;
+.types-s{
+  margin-left: 540px;
+  position: fixed;
+  margin-top: -10.7px;
+}
+
+.types-s select {
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 7px;
+  border: none !important;
+  background-color: #00467c;
+  color: white;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-top: 54.7px;
+}
+.types-s select option {
+  color: white;
+}
+
+.type-create{
+/* position: fixed; */
+  display: flex;
+  /* justify-content: space-between; */
+  border-radius: 5px;
+  margin-top: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px 5px;
+}
+
+.type-create span{
+  position: fixed;
+}
+
+.type-create button{
+  margin-left: 80px;
+  padding: 0px 5px;
+}
+
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+}
+
+.error {
+  justify-content: center;
+  margin-top: 7px;
+  margin-left: 70px;
+  font-size: 12px;
+  color: red;
+  position: fixed;
+}
+
+.error-type{
+  justify-content: center;
+  margin-top: 7px;
+  font-size: 12px;
+  color: red;
+  position: fixed;
+  
 }

@@ -1,31 +1,28 @@
 .search {
-  border-radius: 5px;
-  padding: 10px 15px 10px 15px;
-  background-color: #eeeeee;
-  border: 1px solid rgb(212, 175, 255);
-  margin-top: 10px;
-  display: inline;
-  outline: none;
+  display: flex;
+  align-items: center;
 }
 
-.boton {
-  background-image: url("./icons/lupa.ico");
-  background-position: 10px center;
-  background-repeat: no-repeat;
-  padding-left: 40px;
-  margin-right: 10px;
-  margin: 2px;
-  margin-bottom: 10px;
-  width: 65px;
-  height: 37px;
-  background: #b5e48c;
+.search input[type="text"] {
+  padding: 12px 15px;
+  border: none;
   border-radius: 5px;
-  outline: none;
-  transition-duration: 0.4s;
+  font-size: 16px;
+  flex: 1;
 }
 
-.boton:hover {
+.search-submit {
+  background-color: #fefae0;
+  /* color: white; */
+  border: none;
+  border-radius: 5px;
+  padding: 4px 15px;
+  font-size: 16px;
+  margin-top: 0;
   cursor: pointer;
-  color: white;
-  background: #290035;
+}
+
+.search-submit:hover {
+  transition: 0.4s;
+  background-color: #52b69a;
 }

@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.not-found {
+  height: 100%;
+}
+
+.not-found-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.not-found-container {
+  margin-top: 120px;
+}
+
+.not-found-container h1 {
+  font-family: var(--poppins);
+  text-decoration: underline;
+
+}
+
+.not-found-container p {
+  font-family: var(--opens-sans);
+  font-size: 25px;
+}

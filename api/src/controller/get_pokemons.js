@@ -4,7 +4,7 @@ const { Pokemon, Type } = require("../db");
 //traemos los datos de la api con axios
 const getApiInfo = async () => {
   const resp = await axios
-    .get("https://pokeapi.co/api/v2/pokemon?limit=40")
+    .get("https://pokeapi.co/api/v2/pokemon?limit=110")
     .then((data) => {
       return data.data.results;
     })
@@ -12,7 +12,7 @@ const getApiInfo = async () => {
       return Promise.all(data.map((res) => axios.get(res.url)));
     })
     .then((data) => {
-      return data.map((res) => res.data); 
+      return data.map((res) => res.data);
     });
   let pokeArray = resp.map((result) => {
     return {
@@ -28,6 +28,7 @@ const getApiInfo = async () => {
       weight: result.weight,
     };
   });
+
   return pokeArray;
 };
 
@@ -40,8 +41,17 @@ const getDbInfo = async () => {
         attributes: [],
       },
     },
+    attributes: {
+      exclude: ["createdAt", "updatedAt"],
+    },
   });
-  return results;
+
+  const transformedResults = results.map((result) => ({
+    ...result.toJSON(),
+    types: result.types.map((type) => type.name),
+  }));
+
+  return transformedResults;
 };
 
 const allPokemons = async () => {
