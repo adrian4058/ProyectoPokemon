@@ -11,7 +11,7 @@ export default function Detail(props) {
 
   useEffect(() => {
     dispatch(getDetail(props.match.params.id));
-  }, [dispatch]);
+  });
 
   let details = useSelector((state) => state.detail);
   return (
