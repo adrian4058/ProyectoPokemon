@@ -33,7 +33,6 @@ export default function PokemonCreate() {
 
   const validpokemon = (pokemon) => {
     console.log(pokemon);
-    console.log(pokemon.types.length);
     let errors = {};
     if (!pokemon.name) {
       errors.name = "Se requiere un nombre.";
@@ -167,7 +166,7 @@ export default function PokemonCreate() {
 
   useEffect(() => {
     dispatch(getType());
-  }, []);
+  });
 
   return (
     <div className="form">
@@ -270,11 +269,10 @@ export default function PokemonCreate() {
                     value={pokemon.weight}
                     className="input"
                   />{" "}
-                  {console.log(pokemon.weight)}
                   {errors.weight && <p className="error"> {errors.weight}</p>}
                 </div>
               </div>
-              <p className="types-s ">
+              <div className="types-s ">
                 <select onChange={handleSelect} ref={selectRef}>
                   {types.map((e) => (
                     <option value={e.name}>{e.name.toUpperCase()}</option>
@@ -296,7 +294,7 @@ export default function PokemonCreate() {
                 {errors.types && selectedType === null && (
                   <p className="error-type"> {errors.types}</p>
                 )}
-              </p>{" "}
+              </div>{" "}
               <div className="buttons">
                 <div className="clean-form">
                   <a className="atras" href="/create">

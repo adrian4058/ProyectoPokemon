@@ -131,7 +131,7 @@ export default function Home() {
 
             {currentPokemons?.map((el) => {
               return (
-                <fragment className="fragment">
+                <div className="fragment">
                   <Link to={"/home/" + el.id}>
                     <Card
                       name={el.name.toUpperCase()}
@@ -140,7 +140,7 @@ export default function Home() {
                       id={el.id}
                     />
                   </Link>
-                </fragment>
+                </div>
               );
             })}
             {/* <Paginado
